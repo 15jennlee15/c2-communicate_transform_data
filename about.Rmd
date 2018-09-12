@@ -1,0 +1,18 @@
+---
+title: "About"
+---
+
+```{r setup, include=FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
+
+This is an [R Markdown website](http://rmarkdown.rstudio.com/rmarkdown_websites.html). 
+The source can be found [on GitHub <i class="fa fa-github"></i>](https://github.com/uo-datasci-specialization/c2-communicate_transform_data).
+
+The course webpage can be found here:
+
+<rendered link- suggest Netlify>
+
+

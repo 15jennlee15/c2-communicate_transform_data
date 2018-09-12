@@ -1,0 +1,22 @@
+name: Communicating and Transforming Data
+output_dir: '.'
+navbar:
+  title: Communicating and Transforming Data
+  left:
+  - text: Slides & Reading
+    href: slides.html
+  - text: Resources
+    href: data-vis-resources.html
+  - text: Sakai
+    href: https://sakai.ohsu.edu/portal/site/CS-631-1-32176-Sp18
+  right:
+  - text: About
+    href: about.html
+output:
+  html_document:
+    theme: flatly
+    includes:
+      after_body: footer.html
+    lib_dir: site_libs
+    self_contained: no
+
