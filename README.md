@@ -4,43 +4,28 @@ This repository will house all the materials for the third course in the data sc
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 # Syllabus
-## EDLD XXX: Communicating and Transforming Data (CRN: XXXXX; 3 credit hours)
-* **Term:**
-* **Time:** 
-* **Classroom:** 
+## EDLD 610: Communicating and Transforming Data (CRN: 27553; 3 credit hours)
+* **Term:** Winter 2019
+* **Time:** M/W, 10-11:20
+* **Classroom:** Lokey 115
 * **Instructor:** Daniel Anderson, PhD
 	+ *email:* (preferred contact method) [daniela@uoregon.edu](mailto:daniela@uoregon.edu)
 	+ *phone:* 541-346-3317
 	+ *office:* 175 Lokey
-	+ *office hours*: 
+	+ *office hours*: By appointment
 
 # Course Overview
-This is the second course in a sequence of courses that will eventually lead to 
-a *data science in educational research* specialization. This course will be taught
-through [R](https://cran.r-project.org), a free and open-source statistical
-computing environment. This course, in particular, will rely heavily on building
-on the first course using RStudio. This course will give students a foundation in the principles and practice of data visualization, particularly as applied to scientific and technical data. We will have weekly lectures, covering a wide variety of topics including human perception, color theory, principles of visual design, etc. We will also have weekly hands-on laboratory sessions in which students will have the opportunity to put the lecture material into practice.
+This is the second course in a sequence of courses that will eventually lead to a *data science in educational research* specialization. This course will be taught through [R](https://cran.r-project.org), a free and open-source statistical computing environment. This course, in particular, will rely heavily on building on the first course using RStudio. This course will give students a foundation in the principles and practice of data visualization, particularly as applied to scientific and technical data. We will have weekly lectures, covering a wide variety of topics including human perception, color theory, principles of visual design, etc. We will also have weekly hands-on laboratory sessions in which students will have the opportunity to put the lecture material into practice. Often when creating effective data visualizations, it is necessary to combine and transform different data sources, and this will be a considerable focus of the course as well.
 
 
 ## Student Learning objectives
 By the end of this course, students should be able to:
 
+* Transform data in a variety of ways to create effective data visualizations
+* Understand and fluently apply different types of data joins
 * Customize ggplot2 graphics by reordering factors, creating themes, and applying ggthemes
 * Create reproducible slides using ioslides/xaringan
 * Create a blog using blogdown to summarize key learnings throughout the first two courses
-
-<note to Daniel: want to take a stab at these?>
-
-* Assess the differences in R's data structures (vectors, data frames, lists) and when each is most appropriate
-* Work with lists and list columns using `purrr::nest` and `purrr:unnest`
-* Fit multiple models using the {broom} package with the {purrr} package
-* Convert repetitive tasks into functions and test them for effectiveness
-* Decipher what makes a good function and good assertions on parameters
-* Write effective and clear functions to continue with the mantra of "Don't Repeat Yourself"
-* Explore `purrr::map` and its variants
-* Understand how `purrr::map` differs from base functions, and why its preferable
-* Convert previous code written in prior courses to be more in the functional programming spirit
-* Build their first shiny app related to their work/research
 
 # Course Reading List And Other Resources
 All course readings are freely available online or will be provided by the
@@ -53,110 +38,158 @@ instructor.
 
 
 # Weekly Schedule (Topics, Assignments, and Readings)
-| **Week** | **Theme**                                         | **Topics**                                                | **Assignment Assigned**                  | **Assignment Due**                       | **Reading**                                                         |
-|----------|---------------------------------------------------|-----------------------------------------------------------|------------------------------------------|------------------------------------------|---------------------------------------------------------------------|
-| 1a       | Introduction to visualizations          | graphs, charts, maps, diagrams, "infographics"                   | -                  | -                                        | [Healy 1 (Look at data)](https://socviz.co/lookatdata.html#lookatdata), [R4DS 28 (Graphics for communication)](https://r4ds.had.co.nz/graphics-for-communication.html)                      |
-| 1b       | Hands-on lab                                     | ? Moma? or babynames?                                                   |  Hands-on lab 1b                    |   -                 | If needed: [Healy 2 (Get started)](https://socviz.co/gettingstarted.html#gettingstarted), [Healy 3 (Make a plot)](https://socviz.co/makeplot.html#makeplot)                      |
-| 2a       | Visual perception                     | shapes, etc.                        | -                  | -                | [Healy 4 (Show the right numbers)](https://socviz.co/groupfacettx.html#groupfacettx), [R4DS 13 (Relational data--i.e., get the right numbers!)](https://r4ds.had.co.nz/relational-data.html) |
-| 2b       | Hands-on lab                      | ? Nathans? but needs to join   | Hands-on lab 2b                | Hands-on lab 1b                   | [Wilke 2 (Visualizing data: Mapping data onto aesthetics)](https://serialmentor.com/dataviz/aesthetic-mapping.html)           |
-| 3a       | Color                       | color!                                  | -       | -                           | [Wilke 4 (Color scales)](https://serialmentor.com/dataviz/color-basics.html), [Wilke 16 (Common pitfalls of color use)](https://serialmentor.com/dataviz/color-pitfalls.html)           |
-| 3b       | Hands-on lab                      | color color (538 friday 13?)                       | Hands-on lab 3b       | Hands-on lab 2b         | [Wilke 5 (Directory of visualizations)](https://serialmentor.com/dataviz/directory-of-visualizations.html), [Wilke 6 (Visualizing amounts)](https://serialmentor.com/dataviz/visualizing-amounts.html)                       |
-| 4a       | Graphs                      |- |-                       |-       | [Wilke 7 (Histograms)](https://serialmentor.com/dataviz/histograms-density-plots.html), [Wilke 9 (Distributions)](https://serialmentor.com/dataviz/boxplots-violins.html) |
-| 4b       | Hands-on lab                           | dark sky weather? uncertainty/dists                                         | Hands-on lab 4b               | Hands-on lab 3b | [Wilke 10 (Proportions)](https://serialmentor.com/dataviz/visualizing-proportions.html), [Wilke 12 (Associations)](https://serialmentor.com/dataviz/visualizing-associations.html) |
-| 5a       | Communication  | image output formats         | -               | - |[Wilke 24 (Image file formats for exporting)](https://serialmentor.com/dataviz/image-file-formats.html), [Wilke 26 (Telling a story)](https://serialmentor.com/dataviz/telling-a-story.html) |
-| 5b       | Choices and cycles           | Multi-dimensional data     | Hands-on lab 5b                           | Hands-on lab 4b                | [Wilke 17 (Redundant coding)](https://serialmentor.com/dataviz/redundant-coding.html), [Wilke 20 (Balance data-to-ink ratio)](https://serialmentor.com/dataviz/balance-data-ink.html)            |
-| 6a       | Tables & fonts                              | tables (`kableExtra`) + fonts (`extrafont`)| -              | -         | [Healy 5 (Tables)](https://socviz.co/workgeoms.html#workgeoms), [Wilke 19 (Titles, Captions, and Tables)](https://serialmentor.com/dataviz/figure-titles-captions.html)                             |
-| 6b       | Hands-on lab                              | Take a sad plot and make it better | Hands-on lab 6b                 | Hands-on lab 5b                | [Healy 8 (Refine your plots)](https://socviz.co/refineplots.html#refineplots)    |
-| 7a       | Websites in R Markdown  | -            | portfolio (pick 3 "proudest" dataviz)              | -                       | https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html                |
-| 7b       | Dashboards |                                  | final project proposals: <br>which data?<br>which tools? <br>what message?<br>what audience?      | Hands-on lab 6b                | https://bookdown.org/yihui/rmarkdown/dashboards.html                 |             
-| 8a       | Slide design                                         | intro to `xaringan`  |  `xaringan` slide deck           | Portfolio of 3 "proudest" dataviz as R Markdown site                    | Healy "Making Slides" (https://kieranhealy.org/blog/archives/2018/03/24/making-slides/)                                          |
-| 8b       | Hands-on lab                                           | `xaringan`                      |  Hands-on lab 8b  | final project proposal                     | https://bookdown.org/yihui/rmarkdown/xaringan.html                                          |
-| 9a       | Personal websites                                        | `blogdown` part 1                                            | -                      | -                     | https://bookdown.org/yihui/blogdown/get-started.html                                      |
-| 9b       | Sharing your stuff                                          | `blogdown` part 2: deployment!                                            | -                   | Hands-on lab 8b                   | https://bookdown.org/yihui/blogdown/netlify.html                                        |
-| 10a      | Presentations                               |                                                           |a site + slides                                          |                                          |                                                                     |
-| 10b      | Presentations                               |                                                           |                                          |                                          |                                                                     |
 
-The final project must include:
+| **Week** | **Date** | **Theme**                                        | **Topics**                                     | **Assignment Assigned** | **Assignment Due**     | **Reading**                                                                                                                                                                                            |
+| :------: | :------: | :----------------------------------------------- | :--------------------------------------------- | :---------------------- | :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1a       | 1/7/19   | Intro to the course                              |                                                | Final Project           |                        |                                                                                                                                                                                                        |
+| 1b       | 1/9/19   | GitHub group project                             |                                                | Lab 1                   |                        | Bryan 4-8 (9 optional)                                                                                                                                                                                 |
+| 2a       | 1/14/19  | **Guest Lecture** Introduction to visualizations | graphs, charts, maps, diagrams, "infographics" | -                       | Lab 1                  | [Healy 1 (Look at data)](https://socviz.co/lookatdata.html#lookatdata), [R4DS 28 (Graphics for communication)](https://r4ds.had.co.nz/graphics-for-communication.html)                                 |
+| 2b       | 1/16/19  | **No Class** Take-home lab                       | Babynames                          						| Lab 2                   |                        | If needed: [Healy 2 (Get started)](https://socviz.co/gettingstarted.html#gettingstarted), [Healy 3 (Make a plot)](https://socviz.co/makeplot.html#makeplot)                                            |
+| 3a       | 1/21/19  | Joins 1                                          |                                                | -                       | Lab 2                  | [R4DS 13 (Relational data)](https://r4ds.had.co.nz/relational-data.html)                                                                                                                               |
+| 3b       | 1/23/19  | Joins 2                                          |                                                | Homework 1              |                        |                                                                                                                                                                                                        |
+| 4a       | 1/28/19  | Visual perception                                | shapes, etc.                                   | -                       | -                      | [Healy 4 (Show the right numbers)](https://socviz.co/groupfacettx.html#groupfacettx)                                                                                                                   |
+| 4b       | 1/30/19  | Hands-on lab                                     | Nathans                                        | Lab 3                   | Homework 1             | [Wilke 2 (Visualizing data: Mapping data onto aesthetics)](https://serialmentor.com/dataviz/aesthetic-mapping.html)                                                                                    |
+| 5a       | 2/4/19   | Color                                            | color!                                         | -                       | Lab 3                  | [Wilke 4 (Color scales)](https://serialmentor.com/dataviz/color-basics.html), [Wilke 16 (Common pitfalls of color use)](https://serialmentor.com/dataviz/color-pitfalls.html)                          |
+| 5b       | 2/6/19   | **No Class/Guest Lecture** Hands-on lab          | color color                                    | Homework 2              | Final Project Proposal | [Wilke 5 (Directory of visualizations)](https://serialmentor.com/dataviz/directory-of-visualizations.html), [Wilke 6 (Visualizing amounts)](https://serialmentor.com/dataviz/visualizing-amounts.html) |
+| 6a       | 2/11/19  | Communication                                    | image output formats                           | -                       |                        | [Wilke 24 (Image file formats for exporting)](https://serialmentor.com/dataviz/image-file-formats.html), [Wilke 26 (Telling a story)](https://serialmentor.com/dataviz/telling-a-story.html)           |
+| 6b       | 2/13/19  | Choices and cycles                               | Multi-dimensional data                         | Lab 4                   | Homework 2             | [Wilke 17 (Redundant coding)](https://serialmentor.com/dataviz/redundant-coding.html), [Wilke 20 (Balance data-to-ink ratio)](https://serialmentor.com/dataviz/balance-data-ink.html)                  |
+| 7a       | 2/18/19  | Tables & fonts                                   | tables (`kableExtra`) + fonts (`extrafont`)    | -                       | Lab 4                  | [Healy 5 (Tables)](https://socviz.co/workgeoms.html#workgeoms), [Wilke 19 (Titles, Captions, and Tables)](https://serialmentor.com/dataviz/figure-titles-captions.html)                                |
+| 7b       | 2/20/19  | Hands-on lab                                     | Take a sad plot and make it better             | Lab 5                   |                        | [Healy 8 (Refine your plots)](https://socviz.co/refineplots.html#refineplots)                                                                                                                          |
+| 8a       | 2/25/19  | Websites in R Markdown                           | -                                              | -                       | Lab 5                  | https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html                                                                                                                                               |
+| 8b       | 2/27/19  | Dashboards                                       |                                                | Peer Review; Lab 6      | Portfolio Draft        | https://bookdown.org/yihui/rmarkdown/dashboards.html                                                                                                                                                   |
+| 9a       | 3/4/19   | Personal websites                                | `blogdown` part 1                              | -                       | Lab 6                  | https://bookdown.org/yihui/blogdown/get-started.html                                                                                                                                                   |
+| 9b       | 3/6/19   | Sharing your stuff                               | `blogdown` part 2: deployment!                 | -                       | Peer Review            | https://bookdown.org/yihui/blogdown/netlify.html                                                                                                                                                       |
+| 10a      | 3/11/19  | Presentations                                    |                                                |                         | Presentation           |                                                                                                                                                                                                        |
+| 10b      | 3/13/19  | Presentations                                    |                                                | -                       | Presentation           |                                                                                                                                                                                                        |
+| 11       |          | Final Projects                                   |                                                |                         | Final Project          |                                                                                                                                                                                                        |
 
-1. A deployed website (either an R Markdown website, a `flexdashboard`, or a `blogdown` site for the brave) showing your #dataviz portfolio, with each plot accompanied by a strong narrative/story. You are encouraged to show iterations of your plot, highlighting how your plot evolved over time.
+# Assignments and Grading
+Your final grade will be composed of five components: 
+* 6 labs at 5 points each (30 points) 
+* 2 homework assignments at 10 points each (20 points) 
+* 4 DataCamp modules at 5 points each (20 points) 
+* five-minute data visualization "in the wild" presentation (10 points) 
+* Final Project (120 points)
+	+ Proposal (10 points)
+	+ Peer review (30 points)
+	+ Presentation (20 points)
+	+ Product (60 points)
 
-1. A `xaringan` slide deck, which you'll use to present one of your #dataviz plot code-throughs.
+## Labs (30 points; 15%)
+There are 6 labs during the course, scored at 5 points each, which must be
+submitted within one week of being assigned. Labs will include designated
+in-class time, but any work not completed during in-class time must be completed
+on your own. Labs will be scored on a "best honest effort" basis, which
+generally implies zero or full credit (i.e.,the assignment was or was not fully 
+completed). However, many of the labs require students complete specific
+portions before moving on to the next sections. If you find yourself stuck and
+unable to proceed, **please contact the instructor for help rather than
+submitting incomplete work**. Contacting the instructor is part of the "best 
+honest effort", and can result in full credit for an assignment even if the the 
+work is not fully complete. **If the assignment is not complete, and the student 
+has not contacted the instructor for help, it is likely to result is a score of 
+zero**.
+
+## Homework (20 points; 10%)
+Homework assignments are essentially extended labs, with two exceptions: (1) No
+time will be designated during class to homework completion, and (2) homework
+will be scored on a correct/incorrect basis.
+
+## DataCamp modules (20 points; 10%)
+Four DataCamp modules are required to be completed, with two being assigned, and
+two additional modules of your choosing. Once you have completed the modules, 
+please upload a screenshot of the completion certificate to Canvas.
+
+The following three modules are required:
+* [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) (**Due before class, January 14th**)
+* [Visualization Best Practices in R](https://www.datacamp.com/courses/visualization-best-practices-in-r) (**Due before class, January 21st**)
+
+Additionally, before the end of the term (**Due before midnight, March 20**) you 
+are required to complete **any two** of the following modules, of your choosing:
+* [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
+* [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-3) 
+* [Data Visualization in R](https://www.datacamp.com/courses/data-visualization-in-r)
+	+ Base plotting functions
+* [Data Visualization in R with ggvis](https://www.datacamp.com/courses/ggvis-data-visualization-r-tutorial)
+	+ Interactive grammar of graphics
+* [Interactive Data Visualization with plotly in R](https://www.datacamp.com/courses/interactive-data-visualization-with-plotly-in-r)
+	+ An alternative interactive graphics package - probably more developed overall than {ggvis}
+* [Interactive Data Visualization with rbokeh](https://www.datacamp.com/courses/interactive-data-visualization-with-rbokeh)
+	+ Yet another interactive plotting option
+* [Working with Geospatial Data in R](https://www.datacamp.com/courses/working-with-geospatial-data-in-r)
+	+ Produce static maps with {ggplot2}
+* [Interactive Maps with leaflet in R](https://www.datacamp.com/courses/interactive-maps-with-leaflet-in-r)
+	+ Leverage the [leaflet](https://leafletjs.com) JavaScript library in R 
+* [Visualizing Time Series Data in R](https://www.datacamp.com/courses/visualizing-time-series-data-in-r)
+	+ Univariate and multivariate time series data visualizations
+* [Communicating with Data in the Tidyverse](https://www.datacamp.com/courses/communicating-with-data-in-the-tidyverse)
+	+ Customize themes, more R Markdown
+* [Network Science in R - A Tidy Approach](https://www.datacamp.com/courses/network-science-in-r-a-tidy-approach)
+	+ Work with and visualize network data using tidy data principles
+* [Visualizing Big Data with Trelliscope](https://www.datacamp.com/courses/visualizing-big-data-with-trelliscope)
+	+ Uses {ggplot2} with the {trelliscopejs} package to visualize data at scale. See [here](https://hafen.github.io/trelliscopejs/#trelliscope)
+
+## Data visualizations "in the wild" presentation (10 points; 5%)
+On the first day of the class you will be randomly assigned a date for a 
+presentation. 
+
+Presentations will start with the second class meeting. The assignment requires:
+* Identifying two data visualizations intended for different audiences (e.g.,
+	scientific community, popular culture, data users [teachers/educators, etc.])
+* Sharing the data visualizations with the class, and discussing the following:
+		+ What is trying to be communicated?
+		+ How effective do you judge the visualization at communicating the content?
+		  Why?
+		+ At least one area of strength.
+		+ At least one potential area for improvement.
+
+Note that this project is aimed at identifying a range of data visualizations.
+It would be ideal if both model data visualizations and poor data visualizations
+were presented from a variety of sources. Your two visualizations **must** be
+aimed at separate audiences. 
+
+## Final Project (120 points; 60%)
+The final project will include a portfolio of your data visualizations. At least
+**three** different data visualizations must be included, as well as the 
+history of how the visualization changed over time. Among these three 
+visualizations, at least one continuous variable and one categorical variable
+must be included. The portfolios must be housed on *GitHub* and be 
+reproducible. In occasional situations, it can be helpful to make final 
+modifications to your plot through systems outside of R (e.g., Adobe 
+Illustrator, Inkscape). If you choose to make these modifications (not required)
+they are the one (and only) acceptable exception to full reproducibility. 
+
+### Proposal (10 points; 5%; **Due February 6**)
+At the end of Week 5, you must include a proposal of your data visualization
+portfolio that includes the following:
+* Description of the data source (must be publicly available)
+* Preliminary ideas (even hand sketches) of different visualizations
+* Identification of the intended audience for each visualization 
+		+ Note, you might consider displaying the same data/relations more than 
+			once, with each plot displayed for a different audience.
+* The intended message to be communicated for each plot. 
 
 
+### Portfolio draft (15 points; 7.5%; **Due February 27**)
+By the end of Week 8, you should have a fairly complete draft of the data 
+visualizations you will be sharing in your portfolio. These should be housed
+on GitHub and ready to receive feedback from your peers.
 
-# Assignments 
-As outlined in the table above, most class meetings will include a lab. All 
-labs will also count toward homework assignments, with roughly half the 
-assignment completed during lab, and the other half completed out of class. 
+### Peer review (15 points; 7.5%; **Due March 6**)
+You will be assigned to three of your peers code for their data visualizations. 
+The purpose of this exercise is to learn from each other. Programming is an 
+immensely open-ended enterprise and there are lots of winding paths that all 
+ultimately end up at the same destination. In terms of visualization, there
+is certainly plenty of room for artistic license, but certain design decisions
+(as we will learn) can lead to more interpretable and better data 
+communications. Thus, peer review is a chance to not only learn from others, but
+get feedback on your (expected to be in-progress) design decisions.
 
-
-## Homework (XXX points; XX%)
- 
- <!--
-### Labs (140 points)
-There are 14 labs during the course, which must be submitted to the instructor
-prior to the start of the following class. These labs will be scored on a "best
-honest effort" basis, which generally implies zero or full credit (i.e., the
-assignment was or was not fully completed). However, many of the labs require
-students complete specific portions before moving on to the next sections. If
-you find yourself stuck and unable to proceed, **please contact the instructor
-for help rather than submitting incomplete work**. Contacting the instructor
-is part of the "best honest effort", and can result in full credit for an 
-assignment even if the the work is not fully complete. **If the assignment is
-not complete, and the student has not contacted the instructor for help or
-visited office hours, it is likely to result is a score of zero**.
--->
-
-
-
-## Final Project (XXX points; XX%)
-
-**To be finalized with Daniel**
-
-<!--
-The final project in this class is a group project, requiring students use a 
-“real world” dataset to write, essentially, a miniature manuscript, including 
-an introduction (paragraph or two), methods, results, and discussion (again, 
-maybe 2-3 paragraphs). Ideally, students would work with a dataset that 
-includes variables they are interested in using beyond just this class; 
-however, if students do not have access to a dataset, the instructor will
-provide one. **Students who do not have access to data should plan to meet with
-the instructor as soon as possible so a dataset can be provided**. 
-Additionally, **the dataset must be able to be shared publicly**, as the full
-project will be required to be housed on GitHub and be fully reproducible. If 
-making your data publicly available is a problem for you, please contact the 
-instructor as soon as possible. We can work together to either find a dataset 
-that will work for you, or simulate a dataset that is similar to the data 
-you'd like to work with in reality (and then all your code should work for the 
-real dataset, but you can share the simulated data with your classmates). 
-Students are required to work in groups of 2-4 people. The final assignment is 
-assigned during the first class, and **groups must be finalized by the end of 
-Week 2** (at which point students who have not self-selected into groups will 
-be randomly assigned).
--->
-
-<!--
-### Outline (XX points)
-A basic outline of the final project is due at the end of Week 5. The outline 
-should include a description of the data to be used, a discussion of what 
-preparatory work will need to be done and how the requirements of the final 
-project will be met. The outline is intended to be low-stakes and is primarily 
-designed to be a means for you to obtain feedback on the feasibility of the 
-project and areas to consider. 
-
-### Draft Data Preparation Script (25 points)
-At the end of Week 8, you must have a draft of the data preparation complete, 
-including moving the data from its raw to tidy form and a variety of 
-exploratory data visualizations.
-
-### Peer Review of Data Preparation Script (25 points)
-Following the submission of the data preparation scripts, you will be assigned 
-to review your peers code. The purpose of this exercise is to learn from each 
-other. Programming is an immensely open-ended enterprise and there are lots of 
-winding paths that all ultimately end up at the same destination. During your 
-peer review, you must note (a) at least three areas of strength, (b) at least 
-one thing you learned from reviewing their script, and (c) at least one and no
-more than three areas for improvement. 
+During your peer review, you must note (a) at least three areas of strength, 
+(b) at least one thing you learned from reviewing their script, and (c) at least 
+one and no more than three areas for improvement for each visualization. **The
+peer review should include comments on both the code leading up to the 
+visualization, and the visualization itself**.
 
 Making your code publicly available can feel daunting. The purpose of this 
 portion of the final project is to help us all learn from each other, not to 
@@ -165,69 +198,101 @@ comments that could be perceived as negative, and outside the scope of the
 code, will result in an immediate score of zero. Be constructive in your 
 feedback. Be kind. We are all learning.
 
-### Final Project Presentation (25 points)
-Each group will present on their final project during Week 10, which is 
-expected to still be in progress. These presentations are expected to be 
-informal, and emphasize what learning occurred during the project.
-Specifically, the presentations are to commiserate with each other about the
-failures and challenges experienced along the way, while also celebrating the 
-successes. Learning R is a difficult task, and we should all take solace 
-knowing that others are struggling along with us. The final presentation 
-should be equal parts “journey” and substantive findings/conclusions/results. 
-Students are expected to present for approximately 10 minutes each (20-40 
-minutes per group), although the time may change depending on the enrollment 
-of the class.
- 
+### Presentation (20 points; 10%)
+Week 10 will include each student sharing his or her portfolio with the class.
+We have 28 people in the class and only two class sessions (160 minutes total) 
+to present. 
 
-### Final Paper (110)
-The purpose of the final project is to allow students an opportunity to
-demonstrate all the skills they have learned throughout the course. The final
-project must (a) be a reproducible and dynamic APA manuscript produced with R
-Markdown, via the [*{papaja}*](https://github.com/crsh/papaja) package and
-include references to the extant literature; (b) be housed on GitHub, with
-contributions from all authors obvious; (b) demonstrate
-moving data from its raw “messy” format to a tidy data format through the R Markdown file, but not in the final document; (c) include at least two exploratory data visualizations, and (d) include at least summary statistics of the data in tables, although fitted models of any sort are an added bonus (not literally, there are not extra points for fitting a model). The points for the final project are broken down as follows:
+Presentation must be presented from a published 
+[xaringan](https://github.com/yihui/xaringan) slide deck. 
 
-* Writing (abstract, intro, methods, results, discussion, references): 30 points (25%)
-* Document is fully reproducible and housed on GitHub: 25 points (21%)
-* Demonstrate use of inline code: 5 points (4%)
-* Demonstrate tidying messy data: 30 points (25%)
-* Two data visualizations: 10 points each, 20 points total (17%)
-* Production of at least one table (of summary statistics or model results): 10 points (8%)
+**Prior to the start of Week 10** please send me a link to your 
+published presentation. I will then pre-load all the presentations in different 
+tabs on my computer.
 
-I will investigate the commits made by different authors when evaluating the
-final project. If it is obvious that one person did not utilize GitHub, and
-instead added all of their contributions through a single or only a few 
-commits, I will dock points from that individual. There should be numerous
-commits by each author, and they should be roughly even in terms of
-contribution activity (which GitHub has metrics to track, both in terms of the
-number of commits as well as the number of lines modified).
+You will have **five minutes** to share your portfolio. Please cover the 
+following:
+* Briefly show each visualization
+* Pick 1-2 to go more in-depth, and discuss
+	+ Intended audience
+	+ Design choices, e.g. 
+			- Colors
+			- Layout
+			- Choice of specific type of plot
+	+ Prior version(s) and how the changes helped clarity, communication, beauty,
+		etc.
+	+ At least 1 major challenge encountered along the way
+	+ At least 1 major victory
 
--->
+### Product (60 points; 30%)
+The final project must include a deployed website (either an R Markdown website, 
+a `flexdashboard`, or a `blogdown` site for the brave) showing your #dataviz 
+portfolio, with each plot accompanied by a strong narrative/story. You are 
+encouraged to show iterations of your plots, highlighting how your plot evolved 
+over time. If you go the website route, a blog post showing your visualizations 
+and their evolution would work great. 
 
-# Grading Components
+The final product will be graded on the following three criteria:
+* At least three different visualizations (30 points; 10 points each)
+	+ Design choices
+	+ Plot appropriate for given audience
+	+ Evolution of the plot is clear
+* Reproducibility (20 points)
+	+ Should be housed on GitHub
+	+ I'll clone and try to reproduce
+* Deployment (10 points)
+	+ Should be shareable via a link
+
+## Extra Credit
+There are two opportunities for extra credit. The first is worth up to 10 
+points, and is to do an in-depth self-study of a topic not explicitly covered 
+in the class and then provide a 10 minute presentation on the topic to the 
+class (presentations are likely to occur on lab days). For example, 
+interactive and animated graphics are not explicitly covered, but newer packages 
+like [gganimate](https://gganimate.com/index.html) are powerful and fun. We also 
+will not spend much time on geographic mapping, or networks. Any of these topics 
+would be excellent choices for a presentation. You could also choose an area
+that is covered in the class, but provide greater depth (e.g., color). It is
+also important to keep in mind that this course is about communicating **and** 
+transforming data, and so topics on data transformations would also be 
+appropriate. For example, you may choose to present on integrating R with SQL
+databases. If you are interested in giving a 10 minute talk on a topic of your
+choice, please contact the instructor as soon as possible to obtain approval on
+the topic and set a date for the presentation.
+
+The second opportunity for extra credit is worth up to 5 points. You may 
+complete up to one additional DataCamp module from the list above. Other modules 
+that you are interested in may also be counted toward extra credit, but require 
+prior approval from the instructor. 
+
+You may combine both extra credit opportunities by, for example, going through
+Charlotte Wickham's [Working with Geospatial Data in R](https://www.datacamp.com/courses/working-with-geospatial-data-in-r)
+and then presenting on what you learned. Again, however, this needs to be 
+approved by the instructor.
+
+# Grading Components (200 points possible)
 |  **Lower percent** |**Lower point range**  | **Grade** | **Upper point range**  | **Upper percent**|
 |  :------: | :------   | :-:| :-------: | ----:|
-|  0.97     | (422 pts) | A+ |           |      |
-|  0.93     | (405 pts) | A  | (422 pts) | 0.97 |
-|  0.90     | (392 pts) | A- | (405 pts) | 0.93 |
-|  0.87     | (378 pts) | B+ | (392 pts) | 0.90 |
-|  0.83     | (361 pts) | B  | (378 pts) | 0.87 |
-|  0.80     | (348 pts) | B- | (361 pts) | 0.83 |
-|  0.77     | (335 pts) | C+ | (348 pts) | 0.80 |
-|  0.73     | (318 pts) | C  | (335 pts) | 0.77 |
-|  0.70     | (304 pts) | C- | (318 pts) | 0.73 |
-|           |           | F  | (304 pts) | 0.70 |
+|  0.97     | (194 pts) | A+ |           |      |
+|  0.93     | (186 pts) | A  | (194 pts) | 0.97 |
+|  0.90     | (180 pts) | A- | (186 pts) | 0.93 |
+|  0.87     | (174 pts) | B+ | (180 pts) | 0.90 |
+|  0.83     | (166 pts) | B  | (174 pts) | 0.87 |
+|  0.80     | (160 pts) | B- | (166 pts) | 0.83 |
+|  0.77     | (154 pts) | C+ | (160 pts) | 0.80 |
+|  0.73     | (146 pts) | C  | (154 pts) | 0.77 |
+|  0.70     | (140 pts) | C- | (146 pts) | 0.73 |
+|           |           | F  | (140 pts) | 0.70 |
 
 # Student Engagement Inventory
 Graduate: 1 credit hour = 40 hours of student engagement (3 credit hours = 120 hours of student engagement) 
 
 | **Educational activity** | **Hours student engaged** | **Explanatory comments (if any):**                                                                               |
 | :----------------------- | :-----------------------: | :--------------------------------------------------------------------------------------------------------------- |
-| Course attendance        |            26.5             | 20 meetings, at 80 minutes per meeting                                                                           |
-| Assigned readings        |            27             | Weekly readings are assigned, and are expected to take roughly as long to complete as the in-seat time per week. |
+| Course attendance        |            26.5           | 20 meetings, at 80 minutes per meeting                                                                           |
+| Assigned readings        |            26.5           | Weekly readings are assigned, and are expected to take roughly as long to complete as the in-seat time per week. |
 | Projects                 |            30             | Final project, as described above                                                                                |
-| Homeworks                |            36.5           | 14 Labs, at approximately two hours per lab spent out of class (28 hours), plus 17 DataCamp chapters, at approximately 0.5 hours per chapter |
+| Homework                 |            37             | 6 Labs, at approximately one hour per lab spent out of class (6 hours), plus 4 DataCamp modules at approximately 5 hours per module, plus two homework assignments at approximately 5 hours each |
 | Total hours:             |            120            |                                                                                                                  |
 
 # Attendance and Absence Guidelines
