@@ -3,18 +3,16 @@ output_dir: '.'
 navbar:
   title: Communicating and Transforming Data
   left:
-  - text: Slides & Reading
-    href: slides.html
-  - text: Resources
-    href: data-vis-resources.html
-  - text: Sakai
-    href: https://sakai.ohsu.edu/portal/site/CS-631-1-32176-Sp18
+  - text: Slides, Readings, and Schedule
+    href: schedule.html
+  - text: Syllabus
+    href: site-syllabus.html
   right:
-  - text: About
-    href: about.html
+  - text: DataCamp
+    href: https://www.datacamp.com/enterprise/communicating-and-transforming-data/
 output:
   html_document:
-    theme: flatly
+    theme: readable
     includes:
       after_body: footer.html
     lib_dir: site_libs

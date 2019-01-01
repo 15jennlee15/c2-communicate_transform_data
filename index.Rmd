@@ -2,4 +2,4 @@
 title: "Communicating and Transforming Data"
 ---
 
-This is the site for <course> at University of Oregon College of Education.
+This is the second course in a sequence of courses that will eventually lead to a *data science in educational research* specialization. This course will be taught through [R](https://cran.r-project.org), a free and open-source statistical computing environment. This course, in particular, will rely heavily on building on the first course using RStudio. This course will give students a foundation in the principles and practice of data visualization, particularly as applied to scientific and technical data. We will have weekly lectures, covering a wide variety of topics including human perception, color theory, principles of visual design, etc. We will also have weekly hands-on laboratory sessions in which students will have the opportunity to put the lecture material into practice. Often when creating effective data visualizations, it is necessary to combine and transform different data sources, and this will be a considerable focus of the course as well.
