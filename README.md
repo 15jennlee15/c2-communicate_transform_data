@@ -5,6 +5,7 @@ This repository will house all the materials for the third course in the data sc
 
 # Syllabus
 ## EDLD 610: Communicating and Transforming Data (CRN: 27553; 3 credit hours)
+
 * **Term:** Winter 2019
 * **Time:** M/W, 10-11:20
 * **Classroom:** Lokey 115
@@ -25,17 +26,19 @@ By the end of this course, students should be able to:
 * Understand and fluently apply different types of data joins
 * Customize ggplot2 graphics by reordering factors, creating themes, and applying ggthemes
 * Create reproducible slides using ioslides/xaringan
-* Create a blog using blogdown to summarize key learnings throughout the first two courses
+* Create an online data visualization portfolio using radix and/or flexdashboards to demonstrate key learning 
 
 # Course Reading List And Other Resources
 All course readings are freely available online or will be provided by the
 instructor. 
 
 ## Books (required)
+
 * Kieran Healy, [Data Visualization: A Practical Introduction.](http://socviz.co/) Forthcoming. Princeton University Press.
 * Claus Wilke, [Fundamentals of Data Visualization.](https://serialmentor.com/dataviz/) Forthcoming. O'Reilly.
 
 We will also have select readings from the following books, both of which are highly recommended
+
 * Jenny Bryan, [Happy git with R](http://happygitwithr.com).
 * Hadley Wickham & Garrett Grolemund, [R for Data Science: Import, Tidy, Transform, Visualize, and Model Data](https://r4ds.had.co.nz)
 
@@ -67,6 +70,7 @@ We will also have select readings from the following books, both of which are hi
 
 # Assignments and Grading
 Your final grade will be composed of five components: 
+
 * 6 labs at 5 points each (30 points) 
 * 2 homework assignments at 10 points each (20 points) 
 * 4 DataCamp modules at 5 points each (20 points) 
@@ -104,11 +108,13 @@ two additional modules of your choosing. Once you have completed the modules,
 please upload a screenshot of the completion certificate to Canvas.
 
 The following three modules are required:
+
 * [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1) (**Due before class, January 14th**)
 * [Visualization Best Practices in R](https://www.datacamp.com/courses/visualization-best-practices-in-r) (**Due before class, January 21st**)
 
 Additionally, before the end of the term (**Due before midnight, March 20**) you 
 are required to complete **any two** of the following modules, of your choosing:
+
 * [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
 * [Data Visualization with ggplot2 (Part 3)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-3) 
 * [Data Visualization in R](https://www.datacamp.com/courses/data-visualization-in-r)
@@ -137,14 +143,14 @@ On the first day of the class you will be randomly assigned a date for a
 presentation. 
 
 Presentations will start with the second class meeting. The assignment requires:
+
 * Identifying two data visualizations intended for different audiences (e.g.,
 	scientific community, popular culture, data users [teachers/educators, etc.])
 * Sharing the data visualizations with the class, and discussing the following:
-		+ What is trying to be communicated?
-		+ How effective do you judge the visualization at communicating the content?
-		  Why?
-		+ At least one area of strength.
-		+ At least one potential area for improvement.
+	+ What is trying to be communicated?
+	+ How effective do you judge the visualization at communicating the content? Why?
+	+ At least one area of strength.
+	+ At least one potential area for improvement.
 
 Note that this project is aimed at identifying a range of data visualizations.
 It would be ideal if both model data visualizations and poor data visualizations
@@ -165,11 +171,12 @@ they are the one (and only) acceptable exception to full reproducibility.
 ### Proposal (10 points; 5%; **Due February 6**)
 At the end of Week 5, you must include a proposal of your data visualization
 portfolio that includes the following:
+
 * Description of the data source (must be publicly available)
 * Preliminary ideas (even hand sketches) of different visualizations
 * Identification of the intended audience for each visualization 
-		+ Note, you might consider displaying the same data/relations more than 
-			once, with each plot displayed for a different audience.
+	+ Note, you might consider displaying the same data/relations more than 
+		once, with each plot displayed for a different audience.
 * The intended message to be communicated for each plot. 
 
 
@@ -215,13 +222,14 @@ tabs on my computer.
 
 You will have **five minutes** to share your portfolio. Please cover the 
 following:
+
 * Briefly show each visualization
 * Pick 1-2 to go more in-depth, and discuss
 	+ Intended audience
 	+ Design choices, e.g. 
-			- Colors
-			- Layout
-			- Choice of specific type of plot
+		- Colors
+		- Layout
+		- Choice of specific type of plot
 	+ Prior version(s) and how the changes helped clarity, communication, beauty,
 		etc.
 	+ At least 1 major challenge encountered along the way
@@ -236,6 +244,7 @@ over time. If you go the website route, a blog post showing your visualizations
 and their evolution would work great. 
 
 The final product will be graded on the following three criteria:
+
 * At least three different visualizations (30 points; 10 points each)
 	+ Design choices
 	+ Plot appropriate for given audience
@@ -344,6 +353,7 @@ All students are subject to the regulations stipulated in the UO Student Conduct
 Several options, both informal and formal, are available to resolve conflicts for students who believe they have been subjected to or have witnessed bias, unfairness, or other improper treatment. 
 
 It is important to exhaust the administrative remedies available to you including discussing the conflict with the specific individual, contacting the Department Head, or within the College of Education, you can contact the Associate Dean for Academic Affairs and Equity (Krista Chronister, 346-2415, kmg@uoregon.edu). Outside the College, you can contact: 
+
 * UO Bias Response Team: 346-3216 http://bias.uoregon.edu/whatbrt.htm 
 * Affirmative Action and Equal Opportunity: 346-3123 http://aaeo.uoregon.edu/
 
