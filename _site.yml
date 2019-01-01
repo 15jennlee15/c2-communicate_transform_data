@@ -10,6 +10,8 @@ navbar:
   right:
   - text: DataCamp
     href: https://www.datacamp.com/enterprise/communicating-and-transforming-data/
+  - icon: fa-github
+    href: https://github.com/uo-datasci-specialization/c2-communicate_transform_data
 output:
   html_document:
     theme: readable
