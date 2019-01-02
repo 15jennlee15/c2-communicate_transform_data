@@ -14,7 +14,7 @@ navbar:
     href: https://github.com/uo-datasci-specialization/c2-communicate_transform_data
 output:
   html_document:
-    theme: readable
+    theme: journal
     includes:
       after_body: footer.html
     lib_dir: site_libs
