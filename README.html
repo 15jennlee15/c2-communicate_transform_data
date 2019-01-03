@@ -68,6 +68,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="website-custom.css" type="text/css" />
 
 </head>
 
@@ -366,20 +367,18 @@ $(document).ready(function () {
 <h1>Weekly Schedule (Topics, Assignments, and Readings)</h1>
 <table>
 <colgroup>
-<col width="1%" />
-<col width="1%" />
-<col width="10%" />
-<col width="11%" />
+<col width="2%" />
+<col width="2%" />
+<col width="12%" />
 <col width="5%" />
-<col width="4%" />
-<col width="64%" />
+<col width="5%" />
+<col width="72%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="center"><strong>Week</strong></th>
 <th align="center"><strong>Date</strong></th>
 <th align="left"><strong>Theme</strong></th>
-<th align="left"><strong>Topics</strong></th>
 <th align="left"><strong>Assignment Assigned</strong></th>
 <th align="left"><strong>Assignment Due</strong></th>
 <th align="left"><strong>Reading</strong></th>
@@ -389,26 +388,23 @@ $(document).ready(function () {
 <tr class="odd">
 <td align="center">1a</td>
 <td align="center">1/7/19</td>
-<td align="left">Intro to the course</td>
-<td align="left">Overview, syllabus, integrating groups</td>
+<td align="left"><a href="slides/w1p1.html">Intro to the course</a></td>
 <td align="left">Final Project</td>
 <td align="left">-</td>
-<td align="left">-</td>
+<td align="left"><a href="http://happygitwithr.com/installation-pain.html">Bryan 4-8</a> (9 optional)</td>
 </tr>
 <tr class="even">
 <td align="center">1b</td>
 <td align="center">1/9/19</td>
 <td align="left">GitHub group project</td>
-<td align="left"></td>
 <td align="left">Lab 1</td>
 <td align="left">-</td>
-<td align="left">Bryan 4-8 (9 optional)</td>
+<td align="left"><a href="http://happygitwithr.com/rstudio-git-github.html">Bryan 13</a>, <a href="http://happygitwithr.com/new-github-first.html">Bryan 16</a> (14-15 optional)</td>
 </tr>
 <tr class="odd">
 <td align="center">2a</td>
 <td align="center">1/14/19</td>
 <td align="left"><strong>Guest Lecture</strong> Introduction to visualizations</td>
-<td align="left">graphs, charts, maps, diagrams, infographics</td>
 <td align="left">-</td>
 <td align="left">Lab 1</td>
 <td align="left"><a href="https://socviz.co/groupfacettx.html#groupfacettx">Healy 4 (Show the right numbers)</a>, <a href="https://r4ds.had.co.nz/graphics-for-communication.html">R4DS 28 (Graphics for communication)</a>, <a href="https://serialmentor.com/dataviz/directory-of-visualizations.html">Wilke 5 (Directory of visualizations)</a></td>
@@ -417,7 +413,6 @@ $(document).ready(function () {
 <td align="center">2b</td>
 <td align="center">1/16/19</td>
 <td align="left"><strong>No Class</strong> Take-home lab</td>
-<td align="left">Babynames</td>
 <td align="left">Lab 2</td>
 <td align="left">-</td>
 <td align="left">If needed: <a href="https://socviz.co/gettingstarted.html#gettingstarted">Healy 2 (Get started)</a>, <a href="https://socviz.co/makeplot.html#makeplot">Healy 3 (Make a plot)</a></td>
@@ -426,7 +421,6 @@ $(document).ready(function () {
 <td align="center">3a</td>
 <td align="center">1/21/19</td>
 <td align="left">Joins 1</td>
-<td align="left">Keys, mutating joins, relational data</td>
 <td align="left">-</td>
 <td align="left">Lab 2</td>
 <td align="left"><a href="https://r4ds.had.co.nz/relational-data.html">R4DS 13 (Relational data)</a></td>
@@ -435,7 +429,6 @@ $(document).ready(function () {
 <td align="center">3b</td>
 <td align="center">1/23/19</td>
 <td align="left">Joins 2</td>
-<td align="left">Filtering joins</td>
 <td align="left">Homework 1</td>
 <td align="left">-</td>
 <td align="left">-</td>
@@ -444,7 +437,6 @@ $(document).ready(function () {
 <td align="center">4a</td>
 <td align="center">1/28/19</td>
 <td align="left">Visual perception</td>
-<td align="left">shapes, saturation. etc.</td>
 <td align="left">-</td>
 <td align="left">-</td>
 <td align="left"><a href="https://socviz.co/lookatdata.html#lookatdata">Healy 1 (Look at data)</a></td>
@@ -453,7 +445,6 @@ $(document).ready(function () {
 <td align="center">4b</td>
 <td align="center">1/30/19</td>
 <td align="left">Hands-on lab</td>
-<td align="left">Nathans</td>
 <td align="left">Lab 3</td>
 <td align="left">Homework 1</td>
 <td align="left"><a href="https://serialmentor.com/dataviz/aesthetic-mapping.html">Wilke 2 (Visualizing data: Mapping data onto aesthetics)</a></td>
@@ -462,7 +453,6 @@ $(document).ready(function () {
 <td align="center">5a</td>
 <td align="center">2/4/19</td>
 <td align="left">Color</td>
-<td align="left">color!</td>
 <td align="left">-</td>
 <td align="left">Lab 3</td>
 <td align="left"><a href="https://serialmentor.com/dataviz/color-basics.html">Wilke 4 (Color scales)</a>, <a href="https://serialmentor.com/dataviz/color-pitfalls.html">Wilke 16 (Common pitfalls of color use)</a></td>
@@ -471,7 +461,6 @@ $(document).ready(function () {
 <td align="center">5b</td>
 <td align="center">2/6/19</td>
 <td align="left"><strong>No Class/Guest Lecture</strong> Hands-on lab</td>
-<td align="left">visualizing amounts</td>
 <td align="left">Lab 4</td>
 <td align="left">Final Project Proposal</td>
 <td align="left"><a href="https://serialmentor.com/dataviz/visualizing-amounts.html">Wilke 6 (Visualizing amounts)</a></td>
@@ -480,7 +469,6 @@ $(document).ready(function () {
 <td align="center">6a</td>
 <td align="center">2/11/19</td>
 <td align="left">Communication</td>
-<td align="left"></td>
 <td align="left">-</td>
 <td align="left">Lab 4</td>
 <td align="left"><a href="https://serialmentor.com/dataviz/image-file-formats.html">Wilke 24 (Image file formats for exporting)</a>, <a href="https://serialmentor.com/dataviz/telling-a-story.html">Wilke 26 (Telling a story)</a></td>
@@ -489,7 +477,6 @@ $(document).ready(function () {
 <td align="center">6b</td>
 <td align="center">2/13/19</td>
 <td align="left">Choices and cycles</td>
-<td align="left">Take a sad plot and make it better</td>
 <td align="left">Homework 2</td>
 <td align="left">-</td>
 <td align="left"><a href="https://socviz.co/refineplots.html#refineplots">Healy 8 (Refine your plots)</a>, <a href="https://serialmentor.com/dataviz/redundant-coding.html">Wilke 17 (Redundant coding)</a>, <a href="https://serialmentor.com/dataviz/balance-data-ink.html">Wilke 20 (Balance data-to-ink ratio)</a></td>
@@ -498,7 +485,6 @@ $(document).ready(function () {
 <td align="center">7a</td>
 <td align="center">2/18/19</td>
 <td align="left">Visualizing uncertainty</td>
-<td align="left">Probabilities as frequencies; bootstrap SEs</td>
 <td align="left">-</td>
 <td align="left">-</td>
 <td align="left"><a href="https://serialmentor.com/dataviz/visualizing-uncertainty.html">Wilke 16 (Visualizing Uncertainty)</a></td>
@@ -507,7 +493,6 @@ $(document).ready(function () {
 <td align="center">7b</td>
 <td align="center">2/20/19</td>
 <td align="left">Tables &amp; fonts</td>
-<td align="left">tables (<code>gt</code>) + fonts (<code>extrafont</code>)</td>
 <td align="left">Lab 5</td>
 <td align="left">Homework 2</td>
 <td align="left"><a href="https://socviz.co/workgeoms.html#workgeoms">Healy 5 (Tables, labels, and notes)</a>, <a href="https://gt.rstudio.com/articles/intro-creating-gt-tables.html">gt tables</a></td>
@@ -516,7 +501,6 @@ $(document).ready(function () {
 <td align="center">8a</td>
 <td align="center">2/25/19</td>
 <td align="left">Websites in R Markdown</td>
-<td align="left">Radix</td>
 <td align="left">-</td>
 <td align="left">Lab 5</td>
 <td align="left"><a href="https://rstudio.github.io/radix/">radix</a>, <strong>Optional</strong>: <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">RMD Sites</a>, <a href="https://bookdown.org/yihui/blogdown/">blogdown</a></td>
@@ -525,7 +509,6 @@ $(document).ready(function () {
 <td align="center">8b</td>
 <td align="center">2/27/19</td>
 <td align="left">Dashboards</td>
-<td align="left"></td>
 <td align="left">Peer Review; Lab 6</td>
 <td align="left">Portfolio Draft</td>
 <td align="left"><a href="https://bookdown.org/yihui/rmarkdown/dashboards.html">RMD Dashboards</a></td>
@@ -534,7 +517,6 @@ $(document).ready(function () {
 <td align="center">9a</td>
 <td align="center">3/4/19</td>
 <td align="left">Slides</td>
-<td align="left">xaringan</td>
 <td align="left">-</td>
 <td align="left">Lab 6</td>
 <td align="left"><a href="https://kieranhealy.org/blog/archives/2018/03/24/making-slides/">Healy: Making Slides</a>, <a href="https://github.com/yihui/xaringan/wiki">customization</a></td>
@@ -543,7 +525,6 @@ $(document).ready(function () {
 <td align="center">9b</td>
 <td align="center">3/6/19</td>
 <td align="left">Work day</td>
-<td align="left"></td>
 <td align="left">-</td>
 <td align="left">Peer Review</td>
 <td align="left">-</td>
@@ -553,7 +534,6 @@ $(document).ready(function () {
 <td align="center">3/11/19</td>
 <td align="left">Presentations</td>
 <td align="left"></td>
-<td align="left"></td>
 <td align="left">Presentation</td>
 <td align="left">-</td>
 </tr>
@@ -561,7 +541,6 @@ $(document).ready(function () {
 <td align="center">10b</td>
 <td align="center">3/13/19</td>
 <td align="left">Presentations</td>
-<td align="left"></td>
 <td align="left">-</td>
 <td align="left">Presentation</td>
 <td align="left">-</td>
@@ -570,7 +549,6 @@ $(document).ready(function () {
 <td align="center">11</td>
 <td align="center">3/20/19</td>
 <td align="left">Final Projects</td>
-<td align="left"></td>
 <td align="left"></td>
 <td align="left">Final Project</td>
 <td align="left">-</td>
@@ -582,16 +560,17 @@ $(document).ready(function () {
 <h1>Assignments and Grading</h1>
 <p>Your final grade will be composed of five components:</p>
 <ul>
-<li>6 labs at 5 points each (30 points)</li>
-<li>2 homework assignments at 10 points each (20 points)</li>
-<li>4 DataCamp modules at 5 points each (20 points)</li>
-<li>five-minute data visualization “in the wild” presentation (10 points)</li>
-<li>Final Project (120 points)
+<li>6 labs at 5 points each (30 points; 15%)</li>
+<li>2 homework assignments at 10 points each (20 points; 10%)</li>
+<li>4 DataCamp modules at 5 points each (20 points; 10%)</li>
+<li>five-minute data visualization “in the wild” presentation (10 points; 5%)</li>
+<li>Final Project (120 points; 60%)
 <ul>
-<li>Proposal (10 points)</li>
-<li>Peer review (30 points)</li>
-<li>Presentation (20 points)</li>
-<li>Product (60 points)</li>
+<li>Proposal (10 points; 5%)</li>
+<li>Draft (15 points; 7.5%)</li>
+<li>Peer review (15 points; 7.5%)</li>
+<li>Presentation (20 points; 10%)</li>
+<li>Product (60 points; 30%)</li>
 </ul></li>
 </ul>
 <div id="labs-30-points-15" class="section level2">
@@ -694,7 +673,7 @@ $(document).ready(function () {
 </div>
 <div id="peer-review-15-points-7.5-due-march-6" class="section level3">
 <h3>Peer review (15 points; 7.5%; <strong>Due March 6</strong>)</h3>
-<p>You will be assigned to three of your peers code for their data visualizations. The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communications. Thus, peer review is a chance to not only learn from others, but get feedback on your (expected to be in-progress) design decisions.</p>
+<p>You will be assigned to three of your peers code for their data visualizations (5 points each). The purpose of this exercise is to learn from each other. Programming is an immensely open-ended enterprise and there are lots of winding paths that all ultimately end up at the same destination. In terms of visualization, there is certainly plenty of room for artistic license, but certain design decisions (as we will learn) can lead to more interpretable and better data communications. Thus, peer review is a chance to not only learn from others, but get feedback on your (expected to be in-progress) design decisions.</p>
 <p>During your peer review, you must note (a) at least three areas of strength, (b) at least one thing you learned from reviewing their script, and (c) at least one and no more than three areas for improvement for each visualization. <strong>The peer review should include comments on both the code leading up to the visualization, and the visualization itself</strong>.</p>
 <p>Making your code publicly available can feel daunting. The purpose of this portion of the final project is to help us all learn from each other, not to denigrate. <strong>Under no circumstances will negative comments be tolerated</strong>. Any comments that could be perceived as negative, and outside the scope of the code, will result in an immediate score of zero. Be constructive in your feedback. Be kind. We are all learning.</p>
 </div>
@@ -723,7 +702,9 @@ $(document).ready(function () {
 </div>
 <div id="product-60-points-30" class="section level3">
 <h3>Product (60 points; 30%)</h3>
-<p>The final project must include a deployed website (either an R Markdown website, a <code>flexdashboard</code>, or a <code>blogdown</code> site for the brave) showing your #dataviz portfolio, with each plot accompanied by a strong narrative/story. You are encouraged to show iterations of your plots, highlighting how your plot evolved over time. If you go the website route, a blog post showing your visualizations and their evolution would work great.</p>
+<p>The final project must include * A web-deployed portfolio showcasing your <a href="https://twitter.com/search?q=%23DataViz&amp;src=tyah">#dataviz</a> skills. + <a href="https://rstudio.github.io/radix/">radix</a> (what I’ll lecture on), <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">R Markdown</a>, or <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> website + Technical document with <a href="https://github.com/rstudio/pagedown">pagedown</a> or <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> + Scientific poster with <a href="https://github.com/rstudio/pagedown">pagedown</a> + <a href="https://rmarkdown.rstudio.com/flexdashboard/">flexdashboard</a> * At least three finalized data displays, with each accompanied by a strong narrative/story, as well as the history of how the visualization changed over time.</p>
+<p>You are encouraged to show iterations of your data displays, highlighting how they evolved over and why you made the specific changes you did. If you go the website route, a blog post showing your visualizations and their evolution would work great.</p>
+<p>The final project is required to be housed on GitHub and be fully reproducible.</p>
 <p>The final product will be graded on the following three criteria:</p>
 <ul>
 <li>At least three different visualizations (30 points; 10 points each)
@@ -740,6 +721,8 @@ $(document).ready(function () {
 <li>Deployment (10 points)
 <ul>
 <li>Should be shareable via a link</li>
+<li>No errors in the specific chosen format</li>
+<li>Clear, clean, easy to follow/understand</li>
 </ul></li>
 </ul>
 </div>
