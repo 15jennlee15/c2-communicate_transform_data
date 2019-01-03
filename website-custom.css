@@ -5426,7 +5426,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     color: #000000;
-    background-color: #eeeeee
+    background-color: #D0E3F0;
 }
 
 .navbar-default .navbar-text {
@@ -5440,7 +5440,7 @@ select[multiple].input-group-sm>.input-group-btn>.btn {
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus {
     color: #000000;
-    background-color: #eeeeee
+    background-color: #D0E3F0
 }
 
 .navbar-default .navbar-nav>.active>a,
@@ -8083,7 +8083,8 @@ button.close {
 .navbar-brand {
     font-size: inherit;
     font-weight: 700;
-    font-size: 1.3em
+    font-size: 1.3em;
+    text-transform:none;
 }
 
 .has-warning .help-block,
