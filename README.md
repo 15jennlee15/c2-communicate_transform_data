@@ -44,42 +44,43 @@ We will also have select readings from the following books, both of which are hi
 
 # Weekly Schedule (Topics, Assignments, and Readings)
 
-| **Week** | **Date** | **Theme**                                        | **Topics**                                     			| **Assignment Assigned** | **Assignment Due**     | **Reading**                                                                                                                                                                                                                                                                                     |
-| :------: | :------: | :----------------------------------------------- | :----------------------------------------------------| :---------------------- | :--------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1a       | 1/7/19   | Intro to the course                              | Overview, syllabus, integrating groups         			| Final Project           | -                      | -                                                                                                                                                                                                                                                                                               |
-| 1b       | 1/9/19   | GitHub group project                             |                                                			| Lab 1                   | -                      | Bryan 4-8 (9 optional)                                                                                                                                                                                                                                                                          |
-| 2a       | 1/14/19  | **Guest Lecture** Introduction to visualizations | graphs, charts, maps, diagrams, infographics   			| -                       | Lab 1                  | [Healy 4 (Show the right numbers)](https://socviz.co/groupfacettx.html#groupfacettx), [R4DS 28 (Graphics for communication)](https://r4ds.had.co.nz/graphics-for-communication.html), [Wilke 5 (Directory of visualizations)](https://serialmentor.com/dataviz/directory-of-visualizations.html)|
-| 2b       | 1/16/19  | **No Class** Take-home lab                       | Babynames                          									| Lab 2                   | -                      | If needed: [Healy 2 (Get started)](https://socviz.co/gettingstarted.html#gettingstarted), [Healy 3 (Make a plot)](https://socviz.co/makeplot.html#makeplot)                                                                                                                                     |
-| 3a       | 1/21/19  | Joins 1                                          | Keys, mutating joins, relational data 		      			| -                       | Lab 2                  | [R4DS 13 (Relational data)](https://r4ds.had.co.nz/relational-data.html)                                                                                                                                                                                                                        |
-| 3b       | 1/23/19  | Joins 2                                          | Filtering joins                                      | Homework 1              | -                      | -                                                                                                                                                                                        						                                                                                           |
-| 4a       | 1/28/19  | Visual perception                                | shapes, saturation. etc.                       			| -                       | -                      | [Healy 1 (Look at data)](https://socviz.co/lookatdata.html#lookatdata)                                                                                                                                                                                                                          |
-| 4b       | 1/30/19  | Hands-on lab                                     | Nathans                                        			| Lab 3                   | Homework 1             | [Wilke 2 (Visualizing data: Mapping data onto aesthetics)](https://serialmentor.com/dataviz/aesthetic-mapping.html)                                                                                                                                                                             |
-| 5a       | 2/4/19   | Color                                            | color!                                         			| -                       | Lab 3                  | [Wilke 4 (Color scales)](https://serialmentor.com/dataviz/color-basics.html), [Wilke 16 (Common pitfalls of color use)](https://serialmentor.com/dataviz/color-pitfalls.html)                                                                                                                   |
-| 5b       | 2/6/19   | **No Class/Guest Lecture** Hands-on lab          | visualizing amounts 					                  			| Lab 4			              | Final Project Proposal | [Wilke 6 (Visualizing amounts)](https://serialmentor.com/dataviz/visualizing-amounts.html)                                                                                                                                                                                                      |
-| 6a       | 2/11/19  | Communication                                    |                                                			| -                       | Lab 4                  | [Wilke 24 (Image file formats for exporting)](https://serialmentor.com/dataviz/image-file-formats.html), [Wilke 26 (Telling a story)](https://serialmentor.com/dataviz/telling-a-story.html)                                                                                                    |
-| 6b       | 2/13/19  | Choices and cycles                               | Take a sad plot and make it better             			| Homework 2              | - 				             | [Healy 8 (Refine your plots)](https://socviz.co/refineplots.html#refineplots), [Wilke 17 (Redundant coding)](https://serialmentor.com/dataviz/redundant-coding.html), [Wilke 20 (Balance data-to-ink ratio)](https://serialmentor.com/dataviz/balance-data-ink.html)                            |
-| 7a       | 2/18/19  | Visualizing uncertainty													 | Probabilities as frequencies; bootstrap SEs 	        | -                       | -                      | [Wilke 16 (Visualizing Uncertainty)](https://serialmentor.com/dataviz/visualizing-uncertainty.html)                                                                                                                                                                                             |
-| 7b       | 2/20/19  | Tables & fonts                                   | tables (`gt`) + fonts (`extrafont`)                  | Lab 5                   | Homework 2             | [Healy 5 (Tables, labels, and notes)](https://socviz.co/workgeoms.html#workgeoms), [gt tables](https://gt.rstudio.com/articles/intro-creating-gt-tables.html)                                                                                                                                   |
-| 8a       | 2/25/19  | Websites in R Markdown                           | Radix	                              								| -                       | Lab 5                  | [radix](https://rstudio.github.io/radix/), **Optional**: [RMD Sites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), [blogdown](https://bookdown.org/yihui/blogdown/)                                                                                                                |
-| 8b       | 2/27/19  | Dashboards                                       |                                                			| Peer Review; Lab 6      | Portfolio Draft        | [RMD Dashboards](https://bookdown.org/yihui/rmarkdown/dashboards.html)                                                                                                                                                                                                                          |
-| 9a       | 3/4/19   | Slides 									              		       | xaringan                              								| -                       | Lab 6                  | [Healy: Making Slides](https://kieranhealy.org/blog/archives/2018/03/24/making-slides/), [customization](https://github.com/yihui/xaringan/wiki) 					                                                                                                                                     |
-| 9b       | 3/6/19   | Work day                               					 | 		                  																| -                       | Peer Review            | -                                                                                                                                                      																								                                                                                         |
-| 10a      | 3/11/19  | Presentations                                    |                                                			|                         | Presentation           | -                                                                                                                                                                                                                                                                                               |
-| 10b      | 3/13/19  | Presentations                                    |                                                			| -                       | Presentation           | -                                                                                                                                                                                                                                                                                               |
-| 11       | 3/20/19  | Final Projects                                   |                                                			|                         | Final Project          | -                                                                                                                                                                                                                                                                                               |
+| **Week** | **Date** | **Theme**                                        | **Assignment Assigned** | **Assignment Due**     | **Reading**                                                                                                                                                                                                                                                                                      |
+| :------: | :------: | :----------------------------------------------- | :---------------------- | :--------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    1a    |  1/7/19  | [Intro to the course](slides/w1p1.html)          | Final Project           | -                      | [Bryan 4-8](http://happygitwithr.com/installation-pain.html) (9 optional)                                                                                                                                                                                                                        |
+|    1b    |  1/9/19  | GitHub group project                             | Lab 1                   | -                      | [Bryan 13](http://happygitwithr.com/rstudio-git-github.html), [Bryan 16](http://happygitwithr.com/new-github-first.html) (14-15 optional)                                                                                                                                                        |
+|    2a    | 1/14/19  | **Guest Lecture** Introduction to visualizations | -                       | Lab 1                  | [Healy 4 (Show the right numbers)](https://socviz.co/groupfacettx.html#groupfacettx), [R4DS 28 (Graphics for communication)](https://r4ds.had.co.nz/graphics-for-communication.html), [Wilke 5 (Directory of visualizations)](https://serialmentor.com/dataviz/directory-of-visualizations.html) |
+|    2b    | 1/16/19  | **No Class** Take-home lab                       | Lab 2                   | -                      | If needed: [Healy 2 (Get started)](https://socviz.co/gettingstarted.html#gettingstarted), [Healy 3 (Make a plot)](https://socviz.co/makeplot.html#makeplot)                                                                                                                                      |
+|    3a    | 1/21/19  | Joins 1                                          | -                       | Lab 2                  | [R4DS 13 (Relational data)](https://r4ds.had.co.nz/relational-data.html)                                                                                                                                                                                                                         |
+|    3b    | 1/23/19  | Joins 2                                          | Homework 1              | -                      | -                                                                                                                                                                                                                                                                                                |
+|    4a    | 1/28/19  | Visual perception                                | -                       | -                      | [Healy 1 (Look at data)](https://socviz.co/lookatdata.html#lookatdata)                                                                                                                                                                                                                           |
+|    4b    | 1/30/19  | Hands-on lab                                     | Lab 3                   | Homework 1             | [Wilke 2 (Visualizing data: Mapping data onto aesthetics)](https://serialmentor.com/dataviz/aesthetic-mapping.html)                                                                                                                                                                              |
+|    5a    |  2/4/19  | Color                                            | -                       | Lab 3                  | [Wilke 4 (Color scales)](https://serialmentor.com/dataviz/color-basics.html), [Wilke 16 (Common pitfalls of color use)](https://serialmentor.com/dataviz/color-pitfalls.html)                                                                                                                    |
+|    5b    |  2/6/19  | **No Class/Guest Lecture** Hands-on lab          | Lab 4                   | Final Project Proposal | [Wilke 6 (Visualizing amounts)](https://serialmentor.com/dataviz/visualizing-amounts.html)                                                                                                                                                                                                       |
+|    6a    | 2/11/19  | Communication                                    | -                       | Lab 4                  | [Wilke 24 (Image file formats for exporting)](https://serialmentor.com/dataviz/image-file-formats.html), [Wilke 26 (Telling a story)](https://serialmentor.com/dataviz/telling-a-story.html)                                                                                                     |
+|    6b    | 2/13/19  | Choices and cycles                               | Homework 2              | -                      | [Healy 8 (Refine your plots)](https://socviz.co/refineplots.html#refineplots), [Wilke 17 (Redundant coding)](https://serialmentor.com/dataviz/redundant-coding.html), [Wilke 20 (Balance data-to-ink ratio)](https://serialmentor.com/dataviz/balance-data-ink.html)                             |
+|    7a    | 2/18/19  | Visualizing uncertainty                          | -                       | -                      | [Wilke 16 (Visualizing Uncertainty)](https://serialmentor.com/dataviz/visualizing-uncertainty.html)                                                                                                                                                                                              |
+|    7b    | 2/20/19  | Tables & fonts                                   | Lab 5                   | Homework 2             | [Healy 5 (Tables, labels, and notes)](https://socviz.co/workgeoms.html#workgeoms), [gt tables](https://gt.rstudio.com/articles/intro-creating-gt-tables.html)                                                                                                                                    |
+|    8a    | 2/25/19  | Websites in R Markdown                           | -                       | Lab 5                  | [radix](https://rstudio.github.io/radix/), **Optional**: [RMD Sites](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), [blogdown](https://bookdown.org/yihui/blogdown/)                                                                                                                 |
+|    8b    | 2/27/19  | Dashboards                                       | Peer Review; Lab 6      | Portfolio Draft        | [RMD Dashboards](https://bookdown.org/yihui/rmarkdown/dashboards.html)                                                                                                                                                                                                                           |
+|    9a    |  3/4/19  | Slides                                           | -                       | Lab 6                  | [Healy: Making Slides](https://kieranhealy.org/blog/archives/2018/03/24/making-slides/), [customization](https://github.com/yihui/xaringan/wiki)                                                                                                                                                 |
+|    9b    |  3/6/19  | Work day                                         | -                       | Peer Review            | -                                                                                                                                                                                                                                                                                                |
+|   10a    | 3/11/19  | Presentations                                    |                         | Presentation           | -                                                                                                                                                                                                                                                                                                |
+|   10b    | 3/13/19  | Presentations                                    | -                       | Presentation           | -                                                                                                                                                                                                                                                                                                |
+|    11    | 3/20/19  | Final Projects                                   |                         | Final Project          | -                                                                                                                                                                                                                                                                                                |
 
 # Assignments and Grading
 Your final grade will be composed of five components: 
 
-* 6 labs at 5 points each (30 points) 
-* 2 homework assignments at 10 points each (20 points) 
-* 4 DataCamp modules at 5 points each (20 points) 
-* five-minute data visualization "in the wild" presentation (10 points) 
-* Final Project (120 points)
-	+ Proposal (10 points)
-	+ Peer review (30 points)
-	+ Presentation (20 points)
-	+ Product (60 points)
+* 6 labs at 5 points each (30 points; 15%) 
+* 2 homework assignments at 10 points each (20 points; 10%) 
+* 4 DataCamp modules at 5 points each (20 points; 10%) 
+* five-minute data visualization "in the wild" presentation (10 points; 5%) 
+* Final Project (120 points; 60%)
+  + Proposal (10 points; 5%)
+  + Draft (15 points; 7.5%)
+  + Peer review (15 points; 7.5%)
+  + Presentation (20 points; 10%)
+  + Product (60 points; 30%)
 
 ## Labs (30 points; 15%)
 There are 6 labs during the course, scored at 5 points each, which must be
@@ -186,7 +187,8 @@ visualizations you will be sharing in your portfolio. These should be housed
 on GitHub and ready to receive feedback from your peers.
 
 ### Peer review (15 points; 7.5%; **Due March 6**)
-You will be assigned to three of your peers code for their data visualizations. 
+You will be assigned to three of your peers code for their data visualizations
+(5 points each). 
 The purpose of this exercise is to learn from each other. Programming is an 
 immensely open-ended enterprise and there are lots of winding paths that all 
 ultimately end up at the same destination. In terms of visualization, there
@@ -236,12 +238,27 @@ following:
 	+ At least 1 major victory
 
 ### Product (60 points; 30%)
-The final project must include a deployed website (either an R Markdown website, 
-a `flexdashboard`, or a `blogdown` site for the brave) showing your #dataviz 
-portfolio, with each plot accompanied by a strong narrative/story. You are 
-encouraged to show iterations of your plots, highlighting how your plot evolved 
-over time. If you go the website route, a blog post showing your visualizations 
-and their evolution would work great. 
+
+The final project must include
+* A web-deployed portfolio showcasing your [#dataviz](https://twitter.com/search?q=%23DataViz&src=tyah)
+  skills.
+  + [radix](https://rstudio.github.io/radix/) (what I'll lecture on), 
+    [R Markdown](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), or
+    [blogdown](https://bookdown.org/yihui/blogdown/) website
+  + Technical document with [pagedown](https://github.com/rstudio/pagedown) or
+    [bookdown](https://bookdown.org/yihui/bookdown/)
+  + Scientific poster with [pagedown](https://github.com/rstudio/pagedown)
+  + [flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/)
+* At least three finalized data displays, with each accompanied by a strong 
+	narrative/story, as well as the history of how the visualization changed over 
+	time.
+
+You are encouraged to show iterations of your data displays, highlighting how 
+they evolved over and why you made the specific changes you did. If you go the 
+website route, a blog post showing your visualizations and their evolution 
+would work great. 
+
+The final project is required to be housed on GitHub and be fully reproducible. 
 
 The final product will be graded on the following three criteria:
 
@@ -254,6 +271,8 @@ The final product will be graded on the following three criteria:
 	+ I'll clone and try to reproduce
 * Deployment (10 points)
 	+ Should be shareable via a link
+	+ No errors in the specific chosen format
+	+ Clear, clean, easy to follow/understand
 
 ## Extra Credit
 There are two opportunities for extra credit. The first is worth up to 10 
