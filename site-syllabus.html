@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -70,6 +73,7 @@ h6 {
 }
 </style>
 
+<link rel="stylesheet" href="website-custom.css" type="text/css" />
 
 </head>
 
@@ -266,6 +270,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -341,36 +440,34 @@ $(document).ready(function () {
 </ul>
 </div>
 </div>
-<div id="course-reading-list-and-other-resources" class="section level1">
-<h1>Course Reading List And Other Resources</h1>
+<div id="course-readings" class="section level1">
+<h1>Course Readings</h1>
 <p>All course readings are freely available online or will be provided by the instructor.</p>
 <div id="books-required" class="section level2">
 <h2>Books (required)</h2>
 <ul>
+<li>Jenny Bryan, <a href="http://happygitwithr.com">Happy git with R</a>.</li>
 <li>Kieran Healy, <a href="http://socviz.co/">Data Visualization: A Practical Introduction.</a> Forthcoming. Princeton University Press.</li>
 <li>Claus Wilke, <a href="https://serialmentor.com/dataviz/">Fundamentals of Data Visualization.</a> Forthcoming. O’Reilly.</li>
 </ul>
-<p>We will also have select readings from the following books, both of which are highly recommended</p>
-<ul>
-<li>Jenny Bryan, <a href="http://happygitwithr.com">Happy git with R</a>.</li>
-<li>Hadley Wickham &amp; Garrett Grolemund, <a href="https://r4ds.had.co.nz">R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</a></li>
-</ul>
+<p>We will also have select readings from * Hadley Wickham &amp; Garrett Grolemund, <a href="https://r4ds.had.co.nz">R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</a></p>
 </div>
 </div>
 <div id="assignments-and-grading" class="section level1">
 <h1>Assignments and Grading</h1>
 <p>Your final grade will be composed of five components:</p>
 <ul>
-<li>6 labs at 5 points each (30 points)</li>
-<li>2 homework assignments at 10 points each (20 points)</li>
-<li>4 DataCamp modules at 5 points each (20 points)</li>
-<li>five-minute data visualization “in the wild” presentation (10 points)</li>
-<li>Final Project (120 points)
+<li>6 labs at 5 points each (30 points; 15%)</li>
+<li>2 homework assignments at 10 points each (20 points; 10%)</li>
+<li>4 DataCamp modules at 5 points each (20 points; 10%)</li>
+<li>five-minute data visualization “in the wild” presentation (10 points; 5%)</li>
+<li>Final Project (120 points; 60%)
 <ul>
-<li>Proposal (10 points)</li>
-<li>Peer review (30 points)</li>
-<li>Presentation (20 points)</li>
-<li>Product (60 points)</li>
+<li>Proposal (10 points; 5%)</li>
+<li>Draft (15 points; 7.5%)</li>
+<li>Peer review (15 points; 7.5%)</li>
+<li>Presentation (20 points; 10%)</li>
+<li>Product (60 points; 30%)</li>
 </ul></li>
 </ul>
 <div id="labs-30-points-15" class="section level2">
@@ -502,7 +599,9 @@ $(document).ready(function () {
 </div>
 <div id="product-60-points-30" class="section level3">
 <h3>Product (60 points; 30%)</h3>
-<p>The final project must include a deployed website (either an R Markdown website, a <code>flexdashboard</code>, or a <code>blogdown</code> site for the brave) showing your #dataviz portfolio, with each plot accompanied by a strong narrative/story. You are encouraged to show iterations of your plots, highlighting how your plot evolved over time. If you go the website route, a blog post showing your visualizations and their evolution would work great.</p>
+<p>The final project must include * A web-deployed portfolio showcasing your <a href="https://twitter.com/search?q=%23DataViz&amp;src=tyah">#dataviz</a> skills. + <a href="https://rstudio.github.io/radix/">radix</a> (what I’ll lecture on), <a href="https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html">R Markdown</a>, or <a href="https://bookdown.org/yihui/blogdown/">blogdown</a> website + Technical document with <a href="https://github.com/rstudio/pagedown">pagedown</a> or <a href="https://bookdown.org/yihui/bookdown/">bookdown</a> + Scientific poster with <a href="https://github.com/rstudio/pagedown">pagedown</a> + <a href="https://rmarkdown.rstudio.com/flexdashboard/">flexdashboard</a> * At least three finalized data displays, with each accompanied by a strong narrative/story, as well as the history of how the visualization changed over time.</p>
+<p>You are encouraged to show iterations of your data displays, highlighting how they evolved over and why you made the specific changes you did. If you go the website route, a blog post showing your visualizations and their evolution would work great.</p>
+<p>The final project is required to be housed on GitHub and be fully reproducible.</p>
 <p>The final product will be graded on the following three criteria:</p>
 <ul>
 <li>At least three different visualizations (30 points; 10 points each)
@@ -519,6 +618,8 @@ $(document).ready(function () {
 <li>Deployment (10 points)
 <ul>
 <li>Should be shareable via a link</li>
+<li>No errors in the specific chosen format</li>
+<li>Clear, clean, easy to follow/understand</li>
 </ul></li>
 </ul>
 </div>
@@ -735,6 +836,8 @@ $(document).ready(function () {
 </p>
 
 
+</div>
+</div>
 
 </div>
 

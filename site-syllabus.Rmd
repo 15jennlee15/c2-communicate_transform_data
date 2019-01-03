@@ -1,5 +1,9 @@
 ---
 title: "Syllabus"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ## EDLD 610: Communicating and Transforming Data (CRN: 27553; 3 credit hours)
@@ -25,32 +29,32 @@ By the end of this course, students should be able to:
 * Create reproducible slides using ioslides/xaringan
 * Create an online data visualization portfolio using radix and/or flexdashboards to demonstrate key learning 
 
-# Course Reading List And Other Resources
+# Course Readings 
 All course readings are freely available online or will be provided by the
 instructor. 
 
 ## Books (required)
 
+* Jenny Bryan, [Happy git with R](http://happygitwithr.com).
 * Kieran Healy, [Data Visualization: A Practical Introduction.](http://socviz.co/) Forthcoming. Princeton University Press.
 * Claus Wilke, [Fundamentals of Data Visualization.](https://serialmentor.com/dataviz/) Forthcoming. O'Reilly.
 
-We will also have select readings from the following books, both of which are highly recommended
-
-* Jenny Bryan, [Happy git with R](http://happygitwithr.com).
+We will also have select readings from
 * Hadley Wickham & Garrett Grolemund, [R for Data Science: Import, Tidy, Transform, Visualize, and Model Data](https://r4ds.had.co.nz)
 
 # Assignments and Grading
 Your final grade will be composed of five components: 
 
-* 6 labs at 5 points each (30 points) 
-* 2 homework assignments at 10 points each (20 points) 
-* 4 DataCamp modules at 5 points each (20 points) 
-* five-minute data visualization "in the wild" presentation (10 points) 
-* Final Project (120 points)
-	+ Proposal (10 points)
-	+ Peer review (30 points)
-	+ Presentation (20 points)
-	+ Product (60 points)
+* 6 labs at 5 points each (30 points; 15%) 
+* 2 homework assignments at 10 points each (20 points; 10%) 
+* 4 DataCamp modules at 5 points each (20 points; 10%) 
+* five-minute data visualization "in the wild" presentation (10 points; 5%) 
+* Final Project (120 points; 60%)
+  + Proposal (10 points; 5%)
+  + Draft (15 points; 7.5%)
+  + Peer review (15 points; 7.5%)
+  + Presentation (20 points; 10%)
+  + Product (60 points; 30%)
 
 ## Labs (30 points; 15%)
 There are 6 labs during the course, scored at 5 points each, which must be
@@ -207,12 +211,27 @@ following:
 	+ At least 1 major victory
 
 ### Product (60 points; 30%)
-The final project must include a deployed website (either an R Markdown website, 
-a `flexdashboard`, or a `blogdown` site for the brave) showing your #dataviz 
-portfolio, with each plot accompanied by a strong narrative/story. You are 
-encouraged to show iterations of your plots, highlighting how your plot evolved 
-over time. If you go the website route, a blog post showing your visualizations 
-and their evolution would work great. 
+
+The final project must include
+* A web-deployed portfolio showcasing your [#dataviz](https://twitter.com/search?q=%23DataViz&src=tyah)
+  skills.
+  + [radix](https://rstudio.github.io/radix/) (what I'll lecture on), 
+    [R Markdown](https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html), or
+    [blogdown](https://bookdown.org/yihui/blogdown/) website
+  + Technical document with [pagedown](https://github.com/rstudio/pagedown) or
+    [bookdown](https://bookdown.org/yihui/bookdown/)
+  + Scientific poster with [pagedown](https://github.com/rstudio/pagedown)
+  + [flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/)
+* At least three finalized data displays, with each accompanied by a strong 
+	narrative/story, as well as the history of how the visualization changed over 
+	time.
+
+You are encouraged to show iterations of your data displays, highlighting how 
+they evolved over and why you made the specific changes you did. If you go the 
+website route, a blog post showing your visualizations and their evolution 
+would work great. 
+
+The final project is required to be housed on GitHub and be fully reproducible. 
 
 The final product will be graded on the following three criteria:
 
@@ -225,6 +244,8 @@ The final product will be graded on the following three criteria:
 	+ I'll clone and try to reproduce
 * Deployment (10 points)
 	+ Should be shareable via a link
+	+ No errors in the specific chosen format
+	+ Clear, clean, easy to follow/understand
 
 ## Extra Credit
 There are two opportunities for extra credit. The first is worth up to 10 
