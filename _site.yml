@@ -15,6 +15,7 @@ navbar:
 output:
   html_document:
     theme: journal
+    css: website-custom.css
     includes:
       after_body: footer.html
     lib_dir: site_libs
