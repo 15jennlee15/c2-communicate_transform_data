@@ -156,3 +156,12 @@ d %>%
        caption = "Data from Mike Kearny, distributed via #tidytuesday") +
   theme_minimal(base_size = 20)
 ```
+
+# Finishing up
+It is expected that this lab will take you more time that the 80 minutes we have
+in class. Class time should be used to clarify any points of confusion
+and if you run into issues after class, please get in touch with me so we can
+arrange a time to meet and I can help you.
+
+Once you have finished, please go to Canvas and submit a link to your shared
+repo.
