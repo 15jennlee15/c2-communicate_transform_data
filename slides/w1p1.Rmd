@@ -106,7 +106,8 @@ We'll be using it all term long.
 --
 1. Can read "flat" (i.e., rectangular) datasets into R 
   + I don't care what you use, but you should be using RStudio Projects & I
-    highly recommend {here}
+    highly recommend [{here}](https://github.com/r-lib/here)
+    - See [Jenny Bryan's blog post](https://www.tidyverse.org/articles/2017/12/workflow-vs-script/) for why.
 
 --
 1. Can perform basic data wrangling and transformations in R, using the
@@ -257,6 +258,7 @@ not.
 * Relational data (SQL & friends)
 * Interactive plots
 * Animated plots
+* Text data, text nets
 
 
 ---
@@ -290,6 +292,13 @@ not.
 
 * Okay to work on collaboratively - I actively encourage you to do so as long as
   you're using a shared repo
+
+
+--
+First will be focused on joins and basically relational data (with visualizations built in)
+
+Second will ask you to reproduce some data visualizations "in the wild" with publicly available data.
+
 
 ---
 # Final Project 
@@ -405,6 +414,19 @@ Order randomly assigned. Basically a chance to share what you created!
 class: inverse
 background-image:url(https://d194ip2226q57d.cloudfront.net/original_images/10_Tips_for_Workplace_Communication)
 background-size:contain
+
+---
+# Missing classes
+# 😬
+I will be out .bolder[all] of next week! 
+* Trying desperately to get a guest speaker - most people I can think of will be at the conference with me.
+* May end up just having to have you do the readings and work on a take-home lab
+
+--
+### February 6
+* I will also be out February 6 (but should be able to be here on the 4th)
+* I *think* I have a guest lecture lined up for that day, who will guide you through the lab.
+
 
 ---
 class: inverse center middle
