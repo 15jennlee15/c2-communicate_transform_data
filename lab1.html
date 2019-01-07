@@ -375,12 +375,12 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Communicating and Transforming Data</a>
+      <a class="navbar-brand" href="index.html">EDUC 610</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="schedule.html">Slides, Readings, and Schedule</a>
+  <a href="schedule.html">Slides, Readings, &amp; Schedule</a>
 </li>
 <li>
   <a href="assignments.html">Assignments</a>
@@ -417,7 +417,7 @@ div.tocify {
 
 <div id="overview" class="section level1">
 <h1>Overview</h1>
-<p>The purpose of this lab is to get your working with <em>git</em> and <em>GitHub</em> collaboratively. You should work together in groups of 3-4. At least one person from the group should have prior experience with <em>git/GitHub</em>. The basics of the lab are to:</p>
+<p>The purpose of this lab is to get your working with <em>git</em> and <em>GitHub</em> collaboratively, as well as to refresh some basic <a href="https://dplyr.tidyverse.org">{dplyr}</a> skills. You should work together in groups of 3-4. At least one person in your group should have prior experience with <em>git/GitHub</em>. The basics of the lab are to:</p>
 <ul>
 <li>Create a shared repo</li>
 <li>Create an R Markdown document</li>
@@ -430,13 +430,13 @@ div.tocify {
 </ul>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>We’ll work with Week 1 of the <a href="https://twitter.com/search?q=%23tidytuesday&amp;src=tyah">#tidytuesday</a> data for 2019, specificially the <a href="https://twitter.com/search?q=%23rstats&amp;src=typd">#rstats</a> dataset containing nearly 500,000 tweets over a little more than a decade using that hashtag.</p>
+<p>We’ll work with Week 1 of the <a href="https://twitter.com/search?q=%23tidytuesday&amp;src=tyah">#tidytuesday</a> data for 2019, specifically the <a href="https://twitter.com/search?q=%23rstats&amp;src=typd">#rstats</a> dataset, containing nearly 500,000 tweets over a little more than a decade using that hashtag.</p>
 </div>
 </div>
 <div id="commits" class="section level1 tabset">
 <h1>Commits</h1>
-<p>Glance through the commits below. Each person should be responsible for at least one commit. Commit 1 must be completed first. However, please work on Commit 2 and Commit 4 simultaneously (one person working on each commit). Commits 3/5 cannot be completed until after Commits 2/4, respectively.</p>
-<p><strong>Note:</strong> You may end up with a merge conflict. That’s okay, we’re here to practice. I like <a href="https://www.gitkraken.com">gitkraken</a> for managing merge conflicts, but you can use whatever works best for you.</p>
+<p>Glance through the commits below. Each person should be responsible for <strong>at least</strong> one commit. Commit 1 must be completed first. However, please work on Commits 2 4 simultaneously (one person working on each commit). Commits 3/5 cannot be completed until after Commits 2/4, respectively.</p>
+<p><strong>Note:</strong> You may end up with a merge conflict. That’s okay, we’re here to practice. I like <a href="https://www.gitkraken.com">gitkraken</a> for managing merge conflicts (see <a href="https://blog.axosoft.com/merge-conflict-tool/">here</a>) but you can use whatever works best for you.</p>
 <div id="commit-1" class="section level2">
 <h2>Commit 1</h2>
 <ul>
@@ -445,33 +445,22 @@ div.tocify {
 <li>Create a folder in the repo called “data” and place the corresponding data there</li>
 <li>Initialize a new R Markdown document</li>
 <li>Load the data</li>
+<li>Commit and push all new files/modification to the repo</li>
 </ul>
 </div>
 <div id="commit-2" class="section level2">
 <h2>Commit 2</h2>
-<ul>
-<li>Create the following figure. Some guidance:
-<ul>
-<li>You’ll want to count the number of times a screen name appears and select only the top 25.
-<ul>
-<li>Consider using arranging in descending order, then using <code>dplyr::slice</code></li>
-</ul></li>
-<li>Make the screen name a factor, ordered according to the number of times it appears.
-<ul>
-<li>Consider <code>forcats::fct_reorder</code></li>
-</ul></li>
-<li><code>coord_flip</code> will be your friend here</li>
-</ul></li>
-</ul>
+<p>First <code>pull</code> Commit 1, then reproduce the following figure.</p>
+<p>Some guidance: * You’ll want to count the number of times a screen name appears and select only the top 25. + Consider arranging in descending order, then using <code>dplyr::slice</code> * Make the screen name a factor, ordered according to the number of times it appears. + Consider <code>forcats::fct_reorder</code> * <code>coord_flip</code> will be your friend here</p>
 <p><img src="lab1_files/figure-html/fig1-raw-1.png" width="960" /></p>
 </div>
 <div id="commit-3" class="section level2">
 <h2>Commit 3</h2>
 <ul>
-<li>Style the plot so it matchest the below.
+<li>Style the plot so it matches the below.
 <ul>
 <li>Use <code>theme_minimal</code></li>
-<li>Use <code>"cornflowerblue"</code></li>
+<li>Color with <code>"cornflowerblue"</code></li>
 <li>Increase the <code>base_size</code></li>
 <li>set the <code>fig.width</code> and <code>fig.height</code> to 10</li>
 </ul></li>
@@ -480,23 +469,18 @@ div.tocify {
 </div>
 <div id="commit-4" class="section level2">
 <h2>Commit 4</h2>
-<ul>
-<li>Create the following figure. Some guidance:
-<ul>
-<li>First create a <code>month</code> variable that rounds the <code>created_at</code> variable to the nearest month. You might consider looking at <code>lubridate::round_date</code>.</li>
-<li>Restrict the count to prior to 2019. I would recommend using <code>lubridate::as_datetime("2019-01-01 00:00:00")</code></li>
-<li>Count the number of rows (tweets) in the dataset for each month</li>
-</ul></li>
-</ul>
+<p>Create the following figure.</p>
+<p>Some guidance: * First create a <code>month</code> variable that rounds the <code>created_at</code> column to the nearest month. You might consider <code>lubridate::round_date</code>. * Restrict the count to prior to 2019. I would recommend using <code>lubridate::as_datetime("2019-01-01 00:00:00")</code>, or just restricting the x-axis through <code>ggplot</code> * Count the number of rows (tweets) in the dataset for each month</p>
 <p><img src="lab1_files/figure-html/fig2-raw-1.png" width="960" /></p>
 </div>
 <div id="commit-5" class="section level2">
 <h2>Commit 5</h2>
 <ul>
-<li>Style the plot so it matchest the below.
+<li>Modify the plot so it matches the below.
 <ul>
 <li>Use <code>theme_minimal</code></li>
-<li>Use <code>"gray80"</code> and <code>"cornflowerblue"</code></li>
+<li>Add the <code>area</code> with the appropriate function and 30% transparency</li>
+<li>Use <code>"gray40"</code>, <code>"cornflowerblue"</code>, and <code>"magenta"</code></li>
 <li>Increase the <code>base_size</code></li>
 <li>set the <code>fig.width</code> and <code>fig.height</code> to 10</li>
 </ul></li>
@@ -507,7 +491,7 @@ div.tocify {
 <div id="finishing-up" class="section level1">
 <h1>Finishing up</h1>
 <p>It is expected that this lab will take you more time that the 80 minutes we have in class. Class time should be used to clarify any points of confusion and if you run into issues after class, please get in touch with me so we can arrange a time to meet and I can help you.</p>
-<p>Once you have finished, please go to Canvas and submit a link to your shared repo.</p>
+<p>Once you have finished, please go to Canvas and submit a link to your shared repo. Credit will be awarded based on the commit history.</p>
 </div>
 
 <p>
