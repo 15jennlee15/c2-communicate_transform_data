@@ -17,8 +17,8 @@ knitr::opts_chunk$set(message = FALSE,
                       warning = FALSE,
                       echo = FALSE,
                       fig.width = 10,
-                      fig.height = 10)
-
+                      fig.height = 10,
+                      dev.args = list(bg="transparent"))
 ```
 
 # Overview
@@ -113,7 +113,9 @@ d %>%
        title = "Most prolific #rstats tweeters",
        subtitle = "Top 25 screen names displayed",
        caption = "Data from Mike Kearny, distributed via #tidytuesday") +
-  theme_minimal(base_size = 20)
+  theme_minimal(base_size = 20) +
+  theme(panel.background = element_rect(fill = "transparent", colour = NA),
+        plot.background = element_rect(fill = "transparent", colour = NA))
 ```
 
 ## Commit 4
@@ -154,16 +156,19 @@ d %>%
   ggplot(aes(month, n)) +
   geom_area(fill = "cornflowerblue",
             alpha = 0.3) +
-  geom_line(lwd = 1.5, 
+  geom_line(lwd = 1.6, 
             color = "gray40") +
   geom_smooth(color = "magenta",
-              lwd = 1.2,
+              lwd = 1.4,
               se = FALSE) +
   labs(x = "Year (data summarized by month)",
        y = "Number of #rstats tweets",
        title = "Growth of the #rstats hashtag on twitter over time",
        caption = "Data from Mike Kearny, distributed via #tidytuesday") +
-  theme_minimal(base_size = 20)
+  theme_minimal(base_size = 20) +
+  theme(panel.background = element_rect(fill = "transparent", colour = NA),
+        plot.background = element_rect(fill = "transparent", colour = NA))
+
 ```
 
 # Finishing up
