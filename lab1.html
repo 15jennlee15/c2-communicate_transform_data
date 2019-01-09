@@ -451,7 +451,18 @@ div.tocify {
 <div id="commit-2" class="section level2">
 <h2>Commit 2</h2>
 <p>First <code>pull</code> Commit 1, then reproduce the following figure.</p>
-<p>Some guidance: * You’ll want to count the number of times a screen name appears and select only the top 25. + Consider arranging in descending order, then using <code>dplyr::slice</code> * Make the screen name a factor, ordered according to the number of times it appears. + Consider <code>forcats::fct_reorder</code> * <code>coord_flip</code> will be your friend here</p>
+<p>Some guidance:</p>
+<ul>
+<li>You’ll want to count the number of times a screen name appears and select only the top 25.
+<ul>
+<li>Consider arranging in descending order, then using <code>dplyr::slice</code></li>
+</ul></li>
+<li>Make the screen name a factor, ordered according to the number of times it appears.
+<ul>
+<li>Consider <code>forcats::fct_reorder</code></li>
+</ul></li>
+<li><code>coord_flip</code> will be your friend here</li>
+</ul>
 <p><img src="lab1_files/figure-html/fig1-raw-1.png" width="960" /></p>
 </div>
 <div id="commit-3" class="section level2">
@@ -470,7 +481,12 @@ div.tocify {
 <div id="commit-4" class="section level2">
 <h2>Commit 4</h2>
 <p>Create the following figure.</p>
-<p>Some guidance: * First create a <code>month</code> variable that rounds the <code>created_at</code> column to the nearest month. You might consider <code>lubridate::round_date</code>. * Restrict the count to prior to 2019. I would recommend using <code>lubridate::as_datetime("2019-01-01 00:00:00")</code>, or just restricting the x-axis through <code>ggplot</code> * Count the number of rows (tweets) in the dataset for each month</p>
+<p>Some guidance:</p>
+<ul>
+<li>First create a <code>month</code> variable that rounds the <code>created_at</code> column to the nearest month. You might consider <code>lubridate::round_date</code>.</li>
+<li>Restrict the count to prior to 2019. I would recommend using <code>lubridate::as_datetime("2019-01-01 00:00:00")</code>, or just restricting the x-axis through <code>ggplot</code></li>
+<li>Count the number of rows (tweets) in the dataset for each month</li>
+</ul>
 <p><img src="lab1_files/figure-html/fig2-raw-1.png" width="960" /></p>
 </div>
 <div id="commit-5" class="section level2">

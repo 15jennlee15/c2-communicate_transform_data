@@ -74,6 +74,7 @@ d <- import(here::here("data", "rstats_tweets.rds"),
 First `pull` Commit 1, then reproduce the following figure. 
 
 Some guidance:
+
 * You'll want to count the number of times a screen name appears and select
   only the top 25.
   + Consider arranging in descending order, then using `dplyr::slice`
@@ -122,6 +123,7 @@ d %>%
 Create the following figure. 
 
 Some guidance:
+
 * First create a `month` variable that rounds the `created_at` column to 
   the nearest month. You might consider `lubridate::round_date`.
 * Restrict the count to prior to 2019. I would recommend using 
