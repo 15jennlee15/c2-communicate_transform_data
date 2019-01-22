@@ -38,6 +38,125 @@ update_geom_defaults('point', list(size = 5))
 * Understand the difference between mutating and filtering joins
 
 ---
+# Before we get started
+* Today we'll talk about both mutating and filtering joins
+
+* Mutating joins are more common, but filtering joins can be highly powerful
+
+* Mutating joins add columns to a dataset
+
+
+--
+### What if I want to add rows?
+* Not technically a join (no key involved, which we'll talk about momentarily)
+
+
+---
+# Quick example, binding rows
+```{r g34-datsets}
+g3 <- tibble(sid = 1:3, 
+             grade = rep(3, 3), 
+             score = as.integer(rnorm(3, 200,10)))
+
+g4 <- tibble(sid = 9:11, 
+             grade = rep(4, 3), 
+             score = as.integer(rnorm(3, 200,10)))
+```
+
+.pull-left[
+```{r g3-print}
+g3
+```
+]
+
+
+.pull-left[
+```{r g4-print}
+g4
+```
+]
+
+---
+# `bind_rows`
+* In examples like the previous datasets, we just want to "staple" the rows
+together. 
+
+* We can do so with `bind_rows`.
+
+```{r bind_rows1}
+bind_rows(g3, g4)
+```
+
+---
+# Optional `.id` argument
+* What if we knew the grade, but didn't have a variable in each dataset already?
+* Use `.id` to add an index for each dataset
+
+```{r bind_rows2}
+bind_rows(g3[ ,-2], g4[ ,-2], .id = "dataset")
+```
+
+---
+
+```{r bind_rows_id_mutate}
+bind_rows(g3[ ,-2], g4[ ,-2], .id = "dataset") %>%
+  mutate(grade = ifelse(dataset == 1, 3, 4))
+```
+
+---
+# Even better usage
+
+```{r bind_rows3}
+bind_rows(g3 = g3[ ,-2], g4 = g4[ ,-2], .id = "grade")
+```
+
+---
+## What if columns don't match exactly?
+* Pad with `NA`
+
+```{r bind_rows4}
+bind_rows(g3, g4[ ,-2], .id = "dataset")
+```
+
+---
+# Last note - read in a bunch of files
+* We'll talk about this a lot more in the next course
+* `purrr::map_df` uses `bind_rows` in the background
+
+--
+```{r write_files}
+dir.create("tmp")
+
+mtcars %>%
+  split(.$cyl) %>%
+  walk2(c("tmp/cyl4.csv", "tmp/cyl6.csv", "tmp/cyl8.csv"),
+        write_csv)
+
+list.files("tmp")
+```
+
+---
+# Read in files
+
+* Use `purrr::map_df` with the file names
+* Note `fs::dir_ls` is equivalent to `list.files`, but plays nicer with
+  `purrr::map_df`
+
+```{r read_files}
+new_mtcars <- map_df(fs::dir_ls("tmp"), rio::import, setclass = "tbl_df",
+                     .id = "file")
+new_mtcars %>%
+  select(file, mpg, cyl) %>%
+  slice(1:3)
+unlink("tmp", recursive = TRUE)
+```
+
+---
+class: inverse center middle
+# Joins
+(not to be confused with row binding)
+
+---
 # Keys
 * Uniquely identify rows in a dataset
 
@@ -633,3 +752,10 @@ austen_books() %>%
   count(word, sort = TRUE)
 ```
 
+---
+class: inverse middle
+
+# Wrapping up
+* Homework 1 assigned today
+  + Be careful about keys. Likely to be rather tricky.
+* Next time: Visual perception

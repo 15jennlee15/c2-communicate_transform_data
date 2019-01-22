@@ -36,6 +36,229 @@ class: center, middle, inverse, title-slide
 * Understand the difference between mutating and filtering joins
 
 ---
+# Before we get started
+* Today we'll talk about both mutating and filtering joins
+
+* Mutating joins are more common, but filtering joins can be highly powerful
+
+* Mutating joins add columns to a dataset
+
+
+--
+### What if I want to add rows?
+* Not technically a join (no key involved, which we'll talk about momentarily)
+
+
+---
+# Quick example, binding rows
+
+```r
+g3 &lt;- tibble(sid = 1:3, 
+             grade = rep(3, 3), 
+             score = as.integer(rnorm(3, 200,10)))
+
+g4 &lt;- tibble(sid = 9:11, 
+             grade = rep(4, 3), 
+             score = as.integer(rnorm(3, 200,10)))
+```
+
+.pull-left[
+
+```r
+g3
+```
+
+```
+## # A tibble: 3 x 3
+##     sid grade score
+##   &lt;int&gt; &lt;dbl&gt; &lt;int&gt;
+## 1     1     3   205
+## 2     2     3   197
+## 3     3     3   207
+```
+]
+
+
+.pull-left[
+
+```r
+g4
+```
+
+```
+## # A tibble: 3 x 3
+##     sid grade score
+##   &lt;int&gt; &lt;dbl&gt; &lt;int&gt;
+## 1     9     4   187
+## 2    10     4   200
+## 3    11     4   184
+```
+]
+
+---
+# `bind_rows`
+* In examples like the previous datasets, we just want to "staple" the rows
+together. 
+
+* We can do so with `bind_rows`.
+
+
+```r
+bind_rows(g3, g4)
+```
+
+```
+## # A tibble: 6 x 3
+##     sid grade score
+##   &lt;int&gt; &lt;dbl&gt; &lt;int&gt;
+## 1     1     3   205
+## 2     2     3   197
+## 3     3     3   207
+## 4     9     4   187
+## 5    10     4   200
+## 6    11     4   184
+```
+
+---
+# Optional `.id` argument
+* What if we knew the grade, but didn't have a variable in each dataset already?
+* Use `.id` to add an index for each dataset
+
+
+```r
+bind_rows(g3[ ,-2], g4[ ,-2], .id = "dataset")
+```
+
+```
+## # A tibble: 6 x 3
+##   dataset   sid score
+##   &lt;chr&gt;   &lt;int&gt; &lt;int&gt;
+## 1 1           1   205
+## 2 1           2   197
+## 3 1           3   207
+## 4 2           9   187
+## 5 2          10   200
+## 6 2          11   184
+```
+
+---
+
+
+```r
+bind_rows(g3[ ,-2], g4[ ,-2], .id = "dataset") %&gt;%
+  mutate(grade = ifelse(dataset == 1, 3, 4))
+```
+
+```
+## # A tibble: 6 x 4
+##   dataset   sid score grade
+##   &lt;chr&gt;   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+## 1 1           1   205     3
+## 2 1           2   197     3
+## 3 1           3   207     3
+## 4 2           9   187     4
+## 5 2          10   200     4
+## 6 2          11   184     4
+```
+
+---
+# Even better usage
+
+
+```r
+bind_rows(g3 = g3[ ,-2], g4 = g4[ ,-2], .id = "grade")
+```
+
+```
+## # A tibble: 6 x 3
+##   grade   sid score
+##   &lt;chr&gt; &lt;int&gt; &lt;int&gt;
+## 1 g3        1   205
+## 2 g3        2   197
+## 3 g3        3   207
+## 4 g4        9   187
+## 5 g4       10   200
+## 6 g4       11   184
+```
+
+---
+## What if columns don't match exactly?
+* Pad with `NA`
+
+
+```r
+bind_rows(g3, g4[ ,-2], .id = "dataset")
+```
+
+```
+## # A tibble: 6 x 4
+##   dataset   sid grade score
+##   &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;int&gt;
+## 1 1           1     3   205
+## 2 1           2     3   197
+## 3 1           3     3   207
+## 4 2           9    NA   187
+## 5 2          10    NA   200
+## 6 2          11    NA   184
+```
+
+---
+# Last note - read in a bunch of files
+* We'll talk about this a lot more in the next course
+* `purrr::map_df` uses `bind_rows` in the background
+
+--
+
+```r
+dir.create("tmp")
+
+mtcars %&gt;%
+  split(.$cyl) %&gt;%
+  walk2(c("tmp/cyl4.csv", "tmp/cyl6.csv", "tmp/cyl8.csv"),
+        write_csv)
+
+list.files("tmp")
+```
+
+```
+## [1] "cyl4.csv" "cyl6.csv" "cyl8.csv"
+```
+
+---
+# Read in files
+
+* Use `purrr::map_df` with the file names
+* Note `fs::dir_ls` is equivalent to `list.files`, but plays nicer with
+  `purrr::map_df`
+
+
+```r
+new_mtcars &lt;- map_df(fs::dir_ls("tmp"), rio::import, setclass = "tbl_df",
+                     .id = "file")
+new_mtcars %&gt;%
+  select(file, mpg, cyl) %&gt;%
+  slice(1:3)
+```
+
+```
+## # A tibble: 3 x 3
+##   file           mpg   cyl
+##   &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;
+## 1 tmp/cyl4.csv  22.8     4
+## 2 tmp/cyl4.csv  24.4     4
+## 3 tmp/cyl4.csv  22.8     4
+```
+
+```r
+unlink("tmp", recursive = TRUE)
+```
+
+---
+class: inverse center middle
+# Joins
+(not to be confused with row binding)
+
+---
 # Keys
 * Uniquely identify rows in a dataset
 
@@ -1294,6 +1517,14 @@ austen_books() %&gt;%
 ## 10 house    699
 ## # … with 13,904 more rows
 ```
+
+---
+class: inverse middle
+
+# Wrapping up
+* Homework 1 assigned today
+  + Be careful about keys. Likely to be rather tricky.
+* Next time: Visual perception
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>
