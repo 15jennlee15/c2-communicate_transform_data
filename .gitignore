@@ -1,3 +1,6 @@
+# kaggle files
+/kaggle-data/*.csv
+
 **/.DS_Store
 
 # History files
