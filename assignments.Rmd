@@ -11,8 +11,7 @@ output:
 |**Lab** | **Topic**                          | **Assigned** | **Due** | 
 |:------:| :----------------------------------| :------------| :-------| 
 | 1      | [Collaborating with GitHub](lab1.html)          | 1/9/19       | 1/14/19 | 
-| 2      | [Mapping data to aesthetics](lab2.html)         | 1/16/19      |
-1/21/19 |
+| 2      | [Mapping data to aesthetics](lab2.html)         | 1/16/19      | 1/21/19 |
 | 3      | Visual perception                  | 1/30/19      | 2/4/19  | 
 | 4      | Color                              | 2/6/19       | 2/11/19 | 
 | 5      | Tables and visualizing uncertainty | 2/20/19      | 2/25/19 | 
@@ -22,8 +21,8 @@ output:
 
 |**Homework** | **Topic**                                 | **Assigned** | **Due** | 
 |:-----------:| :-----------------------------------------| :------------| :-------| 
-| 1           | Creating new visualizations through joins | 1/9/19       | 1/14/19 | 
-| 2           | Recreating plots with your own style      | 1/16/19      | 1/21/19 | 
+| 1           | [Creating new visualizations through joins](hw1.html) | 1/23/19       | 1/30/19 | 
+| 2           | Recreating plots with your own style      | 2/13/19      | 2/20/19 | 
 
 # Final Project
 

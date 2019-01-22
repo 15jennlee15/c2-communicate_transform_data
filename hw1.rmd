@@ -1,0 +1,83 @@
+---
+title: "Creating new visualizations through joins"
+subtitle: "An exploration of Kaggle's Open University Learning Analytics Dataset"
+date: "Assigned 1/23/19, Due 1/30/19"
+output:
+  html_document: 
+    toc: true
+    toc_float: true
+    theme: "journal"
+    css: "website-custom.css"
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = FALSE,
+                      echo = FALSE,
+                      dev.args = list(bg="transparent"))
+
+```
+
+## Background
+For this homework we will use data from the online data science platform [kaggle](https://www.kaggle.com). Kaggle is an online data science platform that began as a competitive platform for predictive modeling problems. Private organizations would offer a prize, usually in the range of $25K-$100K, for the individual or team that could provide the best predictive model for their problem. This is still a primary function of the website (see active competitions [here](https://www.kaggle.com/competitions)), but the website has grown and is now also a place to share datasets, compete in open competitions (where you can see others code), and generally learn different facets and approaches to data science in an applied way.
+
+#### Getting Started
+You can download the data we'll use for this homework either [from kaggle](https://www.kaggle.com/rocki37/open-university-learning-analytics-dataset) (requires you create an account with kaggle) or [directly from the organization](https://analyse.kmi.open.ac.uk/open_dataset). The latter link is worth examining to learn more about the data, regardless.
+
+A total of seven datasets (tables) related to an online learning analytics project should be included with your download. A number of keys link the various sources of data. I recommend reading through the documentation provided by the organization to better understand these keys.
+
+## Assignment
+This primary components of this assignment are highly open-ended. These are to
+
+1. Use at least 3 mutating joins
+2. Use at least 1 filtering join
+3. Produce at least 3 data displays
+
+Following the completion of these requirements, please reproduce the following figure.
+
+```{r echo = FALSE, fig.height = 10}
+library(tidyverse)
+stu_assess <- read_csv(here::here("kaggle-data", "studentAssessment.csv")) 
+stu_info <- read_csv(here::here("kaggle-data", "studentInfo.csv")) 
+assessments <- read_csv(here::here("kaggle-data", "assessments.csv")) 
+
+# assessments %>%
+# 	count(id_assessment) %>%
+# 	filter(n > 1)
+
+# stu_assess %>%
+# 	count(id_student, id_assessment) %>%
+# 	filter(n > 1)
+
+# stu_info %>%
+# 	count(code_module, code_presentation, id_student) %>%
+# 	filter(n > 1)
+
+d <- left_join(stu_assess, assessments) %>%
+	left_join(stu_info)
+
+pd <- d %>%
+	filter(assessment_type == "TMA") %>%
+	group_by(highest_education, final_result, gender) %>%
+	summarize(mean_score = mean(score, na.rm = TRUE)) %>%
+	ungroup() %>% 
+	mutate(highest_education = fct_reorder(highest_education, mean_score),
+	       final_result = fct_reorder(final_result, mean_score)) %>%
+	rename(Gender = gender)
+
+ggplot(pd, aes(highest_education, mean_score)) +
+	geom_col(aes(fill = Gender), alpha = 0.7, position = "dodge") +
+	coord_flip() +
+	facet_wrap(~final_result, ncol = 1) +
+	scale_fill_brewer(palette = "Set2") +
+	theme_minimal() +
+	labs(y = "Average Score",
+	     x = "Highest Education",
+	     title = "Average TMA Scores",
+	     subtitle = "Results displayed by Education, gender, and Final Result Designation",
+	     caption = "Data from Kuzilek, Hlosta, & Zdrahal (2017). \nhttps://analyse.kmi.open.ac.uk/open_dataset")
+
+``` 
+
+
+
