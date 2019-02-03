@@ -22,13 +22,38 @@ class: center, middle, inverse, title-slide
 
 
 # Agenda 
-
+* Color basics
+  + 3 basic ways color is used
+* Color blindness
+* Some common problems with color use
+* Quick discussion of palettes
 
 
 
 --
 ### Learning Objectives
-* 
+* Understand different types of color palettes
+  + ...and when you should use one versus another
+* Understand and be able to effectively evaluate concerns related to color
+blindness
+* Be able to fluently change colors/fills within ggplot
+
+---
+# Before we get too deep
+### Some very practical advice
+* Keep straight when color is mapped to a variable through `aes` and when it's
+modifying an element overall
+
+  + Former requires `scale_color_*` or `scale_fill_*` while the latter does not
+
+
+--
+* Keep straight colors and fills (see former bullet)
+
+
+--
+* Use advice of others to your advantage (e.g., http://colorbrewer2.org/)
+
 
 ---
 class: inverse bottom center
@@ -511,7 +536,7 @@ gg_color_swatches(7) +
 	scale_fill_manual(values = accent_OkabeIto)
 ```
 
-![](w5p1_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](w5p1_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -534,6 +559,8 @@ ggplot(popgrowth_df,
 ---
 ![](w5p1_files/figure-html/orwa-highlight-eval2-1.png)&lt;!-- --&gt;
 
+
+
 ---
 # Last example
 
@@ -553,12 +580,15 @@ head(sleepstudy)
 ## 6      415    5     308
 ```
 
+---
+# Plot by subject
+
 ```r
 ggplot(sleepstudy, aes(Days, Reaction, group = Subject)) +
 	geom_line() 
 ```
 
-![](w5p1_files/figure-html/sleepstudy-1.png)&lt;!-- --&gt;
+![](w5p1_files/figure-html/plot1-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -578,7 +608,7 @@ ggplot(sleepstudy, aes(Days, Reaction, group = Subject)) +
 *library(gghighlight)
 ggplot(sleepstudy, aes(Days, Reaction, color = Subject)) +
 	geom_line() +
-	gghighlight(max(Reaction) &gt; 400) +
+*gghighlight(max(Reaction) &gt; 400) +
 	scale_color_OkabeIto()
 ```
 
@@ -591,8 +621,8 @@ ggplot(sleepstudy, aes(Days, Reaction, color = Subject)) +
 *library(gghighlight)
 ggplot(sleepstudy, aes(Days, Reaction, color = Subject)) +
 	geom_line() +
-	facet_wrap(~Subject) +
-	gghighlight(max(Reaction) &gt; 400) +
+*facet_wrap(~Subject) +
+*gghighlight(max(Reaction) &gt; 400) +
 	scale_color_OkabeIto()
 ```
 
@@ -653,8 +683,8 @@ More than 5-ish categories generally becomes too difficult to track
 ```r
 *library(ggrepel)
 
-ggplot(popgrowth_df, aes(pop2000, popgrowth, color = region)) +
-	geom_point() +
+ggplot(popgrowth_df, aes(pop2000, popgrowth)) +
+	geom_point(color = "gray70") +
 *geom_text_repel(aes(label = state))
 ```
 
@@ -681,14 +711,15 @@ subset_states &lt;- popgrowth_df %&gt;%
 ```r
 *library(ggrepel)
 
-ggplot(popgrowth_df, aes(pop2000, popgrowth, color = region)) +
-	geom_point() +
+ggplot(popgrowth_df, aes(pop2000, popgrowth)) +
+	geom_point(color = "gray70") +
 *geom_text_repel(aes(label = state), data = subset_states)
 ```
 
 ![](w5p1_files/figure-html/repeled-labels-1.png)&lt;!-- --&gt;
 
 (still lots more cleaning up we could do here...)
+
 
 
 ---
@@ -727,15 +758,47 @@ ggplot(popgrowth_df,
 ![](w5p1_files/figure-html/rainbow-pop-1.png)&lt;!-- --&gt;
 
 ---
-# Last note on palettes
+# Last few note on palettes
 * Do some research, find what you like .bold[and] what tends to work well
+
 * Check for colorblindness
 
+* Look into http://colorbrewer2.org/ 
 
---
-### Paleteer package
+  + `scale_color_brewer()` and `scale_fill_brewer()` ship with ggplot2
 
-# [![](https://github.com/EmilHvitfeldt/paletteer/raw/master/man/figures/logo.png)](https://github.com/EmilHvitfeldt/paletteer)
+---
+e.g., 
+
+
+```r
+ggplot(popgrowth_df, 
+       aes(x = state, 
+           y = 100*popgrowth)) + 
+  geom_col(aes(fill = region),
+           alpha = 0.7) +
+* scale_fill_brewer(palette = "Set2") +
+  coord_flip() +
+  guides(fill = "none") 
+```
+
+---
+
+![](w5p1_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+---
+# Paleteer package
+
+[![](https://github.com/EmilHvitfeldt/paletteer/raw/master/man/figures/logo.png)](https://github.com/EmilHvitfeldt/paletteer)
+
+
+---
+class: bottom center inverse
+background-image:url("https://pbs.twimg.com/profile_images/893376141070802944/bnS686Mi_400x400.jpg")
+background-size:contain
+
+# Next time
+[Follow him on twitter!](https://twitter.com/pkqstr)
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="https://platform.twitter.com/widgets.js"></script>

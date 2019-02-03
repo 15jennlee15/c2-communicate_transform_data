@@ -14,7 +14,11 @@ output:
 ---
 
 # Agenda 
-
+* Color basics
+  + 3 basic ways color is used
+* Color blindness
+* Some common problems with color use
+* Quick discussion of palettes
 
 ```{r setup, include = FALSE, cache = FALSE}
 knitr::opts_chunk$set(fig.width = 13, 
@@ -23,8 +27,7 @@ knitr::opts_chunk$set(fig.width = 13,
                       echo = TRUE,
                       cache = TRUE)
 knitr::dep_auto()
-#source(here::here("resources", "wilke-aes-mapping.R"))
-#source(here::here("resources", "wilke-avoid_line_drawings.R"))
+
 source(here::here("resources", "wilke-redundant_coding.R"))
 source(here::here("resources", "wilke-color_basics.R"))
 
@@ -35,7 +38,28 @@ update_geom_defaults('point', list(size = 4))
 
 --
 ### Learning Objectives
-* 
+* Understand different types of color palettes
+  + ...and when you should use one versus another
+* Understand and be able to effectively evaluate concerns related to color
+blindness
+* Be able to fluently change colors/fills within ggplot
+
+---
+# Before we get too deep
+### Some very practical advice
+* Keep straight when color is mapped to a variable through `aes` and when it's
+modifying an element overall
+
+  + Former requires `scale_color_*` or `scale_fill_*` while the latter does not
+
+
+--
+* Keep straight colors and fills (see former bullet)
+
+
+--
+* Use advice of others to your advantage (e.g., http://colorbrewer2.org/)
+
 
 ---
 class: inverse bottom center
@@ -468,7 +492,7 @@ ca %>%
 
 ```
 
-```{r include = FALSE, cache = FALSE}
+```{r theme_set2, include = FALSE, cache = FALSE}
 theme_set(theme_minimal(base_size = 18))
 
 ```
@@ -637,13 +661,22 @@ ggplot(popgrowth_df,
                                    face = label_face)) 
 ```
 
+```{r set_theme3, echo = FALSE}
+theme_set(theme_minimal(20))
+
+```
+
 ---
 # Last example
 
 ```{r sleepstudy}
 data(sleepstudy, package = "lme4")
 head(sleepstudy)
+```
 
+---
+# Plot by subject
+```{r plot1, fig.height = 6}
 ggplot(sleepstudy, aes(Days, Reaction, group = Subject)) +
 	geom_line() 
 ```
@@ -662,18 +695,18 @@ ggplot(sleepstudy, aes(Days, Reaction, group = Subject)) +
 library(gghighlight) #<<
 ggplot(sleepstudy, aes(Days, Reaction, color = Subject)) +
 	geom_line() +
-	gghighlight(max(Reaction) > 400) +
+	gghighlight(max(Reaction) > 400) + #<<
 	scale_color_OkabeIto()
 ```
 
 ---
 
-```{r gghighlight3}
+```{r gghighlight3, fig.height = 6}
 library(gghighlight) #<<
 ggplot(sleepstudy, aes(Days, Reaction, color = Subject)) +
 	geom_line() +
-	facet_wrap(~Subject) +
-	gghighlight(max(Reaction) > 400) +
+	facet_wrap(~Subject) + #<<
+	gghighlight(max(Reaction) > 400) + #<<
 	scale_color_OkabeIto()
 ```
 
@@ -736,8 +769,8 @@ More than 5-ish categories generally becomes too difficult to track
 ```{r states-labeled, fig.height = 5}
 library(ggrepel) #<<
 
-ggplot(popgrowth_df, aes(pop2000, popgrowth, color = region)) +
-	geom_point() +
+ggplot(popgrowth_df, aes(pop2000, popgrowth)) +
+	geom_point(color = "gray70") +
 	geom_text_repel(aes(label = state)) #<<
 ```
 
@@ -760,13 +793,17 @@ subset_states <- popgrowth_df %>%
 ```{r repeled-labels, fig.height = 6}
 library(ggrepel) #<<
 
-ggplot(popgrowth_df, aes(pop2000, popgrowth, color = region)) +
-	geom_point() +
+ggplot(popgrowth_df, aes(pop2000, popgrowth)) +
+	geom_point(color = "gray70") +
 	geom_text_repel(aes(label = state), data = subset_states) #<<
 ```
 
 (still lots more cleaning up we could do here...)
 
+```{r theme_set4, include = FALSE}
+theme_set(theme_minimal(base_size = 13))
+
+```
 
 ---
 # Rainbow palette
@@ -777,7 +814,7 @@ rainbow(7)
 ```
 
 ---
-```{r rainbow-pop, fig.height = 6}
+```{r rainbow-pop, fig.height = 6.5}
 ggplot(popgrowth_df, 
        aes(x = state, 
            y = 100*popgrowth)) + 
@@ -788,14 +825,44 @@ ggplot(popgrowth_df,
 ```
 
 ---
-# Last note on palettes
+# Last few note on palettes
 * Do some research, find what you like .bold[and] what tends to work well
+
 * Check for colorblindness
 
+* Look into http://colorbrewer2.org/ 
 
---
-### Paleteer package
+  + `scale_color_brewer()` and `scale_fill_brewer()` ship with ggplot2
+
+---
+e.g., 
+
+```{r brewer, eval = FALSE}
+ggplot(popgrowth_df, 
+       aes(x = state, 
+           y = 100*popgrowth)) + 
+  geom_col(aes(fill = region),
+           alpha = 0.7) +
+  scale_fill_brewer(palette = "Set2") + #<<
+  coord_flip() +
+  guides(fill = "none") 
+```
+
+---
+
+```{r ref.label="brewer", echo=FALSE,  fig.height = 9.5}
+```
+
+---
+# Paleteer package
 
 [![](https://github.com/EmilHvitfeldt/paletteer/raw/master/man/figures/logo.png)](https://github.com/EmilHvitfeldt/paletteer)
 
 
+---
+class: bottom center inverse
+background-image:url("https://pbs.twimg.com/profile_images/893376141070802944/bnS686Mi_400x400.jpg")
+background-size:contain
+
+# Next time
+[Follow him on twitter!](https://twitter.com/pkqstr)
