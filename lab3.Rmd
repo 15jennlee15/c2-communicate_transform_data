@@ -71,8 +71,14 @@ ggplot(g, aes(date, interest)) +
               color = "white")
 
 ggplot(g, aes(date, hurricane)) +
-  geom_tile(aes(fill = interest)) +
-  scale_fill_viridis_c(option = "magma")
+  geom_tile(aes(fill = interest),
+            color = "gray90") +
+  scale_fill_viridis_c(option = "magma") +
+  coord_fixed() +
+  theme(legend.position = "bottom",
+        legend.direction = "horizontal",
+        legend.key.size = unit(1, 'cm'),
+        legend.key.height = unit(.5,"cm"))
 
 landfall <- tibble(date = lubridate::mdy(c("August 25, 2017", 
                                            "September 10, 2017", 
