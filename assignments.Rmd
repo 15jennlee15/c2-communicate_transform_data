@@ -14,7 +14,7 @@ output:
 | 2      | [Mapping data to aesthetics](lab2.html)         | 1/16/19      | 1/21/19 |
 | 3      | [Visual perception](lab3.html)                  | 1/30/19      | 2/4/19  | 
 | 4      | [Color](lab4.html)                              | 2/6/19       | 2/11/19 | 
-| 5      | Tables and visualizing uncertainty | 2/20/19      | 2/25/19 | 
+| 5      | [Refining plots for communication](lab5.html)   | 2/13/19      | 2/18/19 | 
 | 6      | Sharing your work w/Web deployment | 2/27/19      | 3/4/19  | 
 
 # Homework
@@ -22,7 +22,7 @@ output:
 |**Homework** | **Topic**                                 | **Assigned** | **Due** | 
 |:-----------:| :-----------------------------------------| :------------| :-------| 
 | 1           | [Creating new visualizations through joins](hw1.html) | 1/23/19       | 1/30/19 | 
-| 2           | Recreating plots with your own style      | 2/13/19      | 2/20/19 | 
+| 2           | Tables and visualizing uncertainty      | 2/18/19      | 2/25/19 | 
 
 # Final Project
 
