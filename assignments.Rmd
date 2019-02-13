@@ -15,7 +15,7 @@ output:
 | 3      | [Visual perception](lab3.html)                  | 1/30/19      | 2/4/19  | 
 | 4      | [Color](lab4.html)                              | 2/6/19       | 2/11/19 | 
 | 5      | [Refining plots for communication](lab5.html)   | 2/13/19      | 2/18/19 | 
-| 6      | Sharing your work w/Web deployment | 2/27/19      | 3/4/19  | 
+| 6      | Tidy Tuesday/Feedback Friday | 2/27/19      | 3/4/19  | 
 
 # Homework
 
