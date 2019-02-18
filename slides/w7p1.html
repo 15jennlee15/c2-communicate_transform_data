@@ -24,7 +24,26 @@ class: center, middle, inverse, title-slide
 
 
 # Agenda 
-* 
+* Common ways of visualizing uncertainty
+  + And how to implement them with {ggplot2}
+
+* Framing uncertainty as relative frequencies
+  + Discrete probabilities
+  + Non-discrete probabilities
+    + Understanding AUC calculations
+
+* Understanding standard errors
+  + Non-standard ways of visualizing SEs
+
+* HOPs (briefly)
+  + Also bootstrapping
+
+---
+# Learning objectives
+1. Understand there are lots of different ways to visualize uncertainty, and the best method may often be non-standard.
+
+2. Understand how to implement basic methods, and the resources available to you to implement more advanced methods
+
 
 ---
 # The primary problem
@@ -591,7 +610,8 @@ ggplot(discretized, aes(x)) +
   scale_fill_manual(
     values = c("#b1daf4", "#f8f1a9"),
     guide = "none") +
-  theme_void()
+  scale_y_continuous(name = "", 
+                     breaks = NULL)
 ```
 
 ![](w7p1_files/figure-html/dotplot5-1.png)&lt;!-- --&gt;
@@ -4968,7 +4988,7 @@ ggplot(tidied_m, aes(estimate, term)) +
 
 ---
 class:inverse center middle
-# HOPS
+# HOPs
 ### Hypothetical Outcome Plots (and related plots)
 
 ---
@@ -5472,7 +5492,7 @@ ggplot(mtcars, aes(disp, mpg)) +
 ![](w7p1_files/figure-html/bootstrap2d-eval-1.png)&lt;!-- --&gt;
 
 ---
-# Hops
+# HOPs
 Hops animate the process, so you can't ever really settle on one "truth"
 
 
