@@ -1,3 +1,6 @@
+# crime file
+/data/crime.csv
+
 # kaggle files
 /kaggle-data/*.csv
 
