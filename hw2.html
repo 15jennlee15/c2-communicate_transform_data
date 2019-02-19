@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Visualizing uncertainty and creating pretty tables</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="website-custom.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">EDUC 610</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="schedule.html">Slides, Readings, &amp; Schedule</a>
+</li>
+<li>
+  <a href="assignments.html">Assignments</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="site-syllabus.html">Syllabus</a>
+</li>
+<li>
+  <a href="https://www.datacamp.com/enterprise/communicating-and-transforming-data/">DataCamp</a>
+</li>
+<li>
+  <a href="https://github.com/uo-datasci-specialization/c2-communicate_transform_data">
+    <span class="fa fa-github"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Visualizing uncertainty and creating pretty tables</h1>
+<h4 class="date"><em>Assigned 2/20/19, Due 2/27/19</em></h4>
+
+</div>
+
+
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>For this homework we will again use data from <a href="https://www.kaggle.com">kaggle</a>, this time looking at <a href="https://www.kaggle.com/paultimothymooney/denver-crime-data">crime rates in Denver, CO</a>.</p>
+<div id="getting-started" class="section level4">
+<h4>Getting Started</h4>
+<p>You can download the data we’ll use for this homework either <a href="https://www.kaggle.com/paultimothymooney/denver-crime-data">from kaggle</a> or from canvas. Please visit the aforementioned link for a description of the data. We will be using the <code>crime.csv</code> file. Note that if you do download the data directly from kaggle your plots may not match mine exactly, given that the data are updated daily.</p>
+</div>
+</div>
+<div id="assignment" class="section level2">
+<h2>Assignment</h2>
+<ol style="list-style-type: decimal">
+<li>Select rows corresponding to a crime and reproduce the following plot. Note that because these are proportion data, I used the following formula to calculate the standard error <span class="math inline">\(\sqrt{(p(1-p) / n}\)</span>.</li>
+</ol>
+<p><img src="hw2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Visualize the same relation, but displaying the uncertainty using an alternative method of your choosing.</p></li>
+<li><p>Reproduce the following plot. Use the <code>reported_date</code> to extract the year.</p></li>
+</ol>
+<p><img src="hw2_files/figure-html/viz3-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Limit your data to the following. Note that only rows corresponding to a crime have been retained, and I have counted the number of rows (crimes) for each district in each year. I have stored this data frame in an object called <code>counts</code></li>
+</ol>
+<pre><code>## # A tibble: 42 x 3
+##     year district_id     n
+##    &lt;dbl&gt;       &lt;dbl&gt; &lt;int&gt;
+##  1  2014           1 10519
+##  2  2014           2  9287
+##  3  2014           3 12041
+##  4  2014           4 10039
+##  5  2014           5  5801
+##  6  2014           6 13118
+##  7  2014           7   463
+##  8  2015           1 11364
+##  9  2015           2 10030
+## 10  2015           3 13026
+## # … with 32 more rows</code></pre>
+<p>Fit the following model</p>
+<pre class="r"><code>m &lt;- glm(n ~ I(factor(district_id)) + I(year - 2014), 
+         data = counts)</code></pre>
+<p>Extract the output using <code>broom::tidy</code></p>
+<pre class="r"><code>tidied &lt;- broom::tidy(m)</code></pre>
+<p>Divide the probability space, <code>[0, 1]</code>, into even bins of your choosing. For example, for 20 bins I could run the following</p>
+<pre class="r"><code>ppoints(20)</code></pre>
+<pre><code>##  [1] 0.025 0.075 0.125 0.175 0.225 0.275 0.325 0.375 0.425 0.475 0.525
+## [12] 0.575 0.625 0.675 0.725 0.775 0.825 0.875 0.925 0.975</code></pre>
+<p>The coefficients (<code>tidied$estimate</code>) for each district in the model represent the difference in crime rates between the corresponding district (the integer at the end of <code>tidied$term</code>) and District 1 in 2014. For example, District 2 had an estimated 1290 fewer crimes than District 1. However, there is uncertainty in this estimate, with a standard error of 1912.79. The point estimate for a given district represents our “best guess” as to the true difference, and the likelihood of alternative differences are distributed around this point with a standard deviation equal to the standard error. We can simulate data from this distribution, if we choose, or instead just use the distribution to calculate different quantiles.</p>
+<p>The <code>qnorm</code> function transforms probabilities, such as those we generated with <code>ppoints</code>, into values according to some pre-defined normal distribution (by default <span class="math inline">\(\mu = 0, \sigma = 1\)</span>). For example <code>qnorm(.75, mean = 100, sd = 10)</code> provides the 75th percentile value from a distribution with a mean of 100 and a standard deviation of 10. We can therefore use <code>qnorm</code> in conjunction with <code>ppoints</code> to better understand the sampling distribution and, ultimately, communicate uncertainty. For example the following code generates the values corresponding to <code>ppoints(20)</code>, or 2.5th to 97.5th percentiles of the distributions in 5 percentile “jumps”, for the difference in crime rates for District 1 and 2.</p>
+<pre class="r"><code>qnorm(ppoints(20), 
+      mean = tidied$estimate[2],
+      sd = tidied$std.error[2])</code></pre>
+<pre><code>##  [1] -5038.6713 -4043.1918 -3490.0464 -3077.3421 -2734.6189 -2433.0578
+##  [7] -2157.6196 -1899.1577 -1651.4110 -1409.6117 -1169.7216  -927.9223
+## [13]  -680.1757  -421.7137  -146.2755   155.2856   498.0088   910.7131
+## [19]  1463.8585  2459.3379</code></pre>
+<p>Using this procedure, replicate a plot like the following, but displaying the likelihood of the crime rate differences between District 4 and District 1 (e.g., you will need to use <code>tidied$estimate[4]</code> and <code>tidied$std.error[4]</code>). Make sure to put the values in a data frame, and create a new variable stating whether the difference is greater than zero (which you will use to fill by).</p>
+<p><strong>Note:</strong> Your probabilities will not directly correspond with the <span class="math inline">\(p\)</span> values, which are essentially twice the probability you are displaying (because the test is two-tailed).</p>
+<p><img src="hw2_files/figure-html/dotplot-1.png" width="672" /></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Reproduce the following table</li>
+</ol>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#iubghfipvq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000;
+  font-size: 16px;
+  background-color: #FFFFFF;
+  /* table.background.color */
+  width: auto;
+  /* table.width */
+  border-top-style: solid;
+  /* table.border.top.style */
+  border-top-width: 2px;
+  /* table.border.top.width */
+  border-top-color: #A8A8A8;
+  /* table.border.top.color */
+}
+
+#iubghfipvq .gt_heading {
+  background-color: #FFFFFF;
+  /* heading.background.color */
+  border-bottom-color: #FFFFFF;
+}
+
+#iubghfipvq .gt_title {
+  color: #000000;
+  font-size: 125%;
+  /* heading.title.font.size */
+  padding-top: 4px;
+  /* heading.top.padding */
+  padding-bottom: 1px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#iubghfipvq .gt_subtitle {
+  color: #000000;
+  font-size: 85%;
+  /* heading.subtitle.font.size */
+  padding-top: 1px;
+  padding-bottom: 4px;
+  /* heading.bottom.padding */
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#iubghfipvq .gt_bottom_border {
+  border-bottom-style: solid;
+  /* heading.border.bottom.style */
+  border-bottom-width: 2px;
+  /* heading.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* heading.border.bottom.color */
+}
+
+#iubghfipvq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#iubghfipvq .gt_col_heading {
+  color: #000000;
+  background-color: #FFFFFF;
+  /* column_labels.background.color */
+  font-size: 16px;
+  /* column_labels.font.size */
+  font-weight: initial;
+  /* column_labels.font.weight */
+  vertical-align: middle;
+  padding: 10px;
+  margin: 10px;
+}
+
+#iubghfipvq .gt_sep_right {
+  border-right: 5px solid #FFFFFF;
+}
+
+#iubghfipvq .gt_group_heading {
+  padding: 8px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#iubghfipvq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #000000;
+  background-color: #FFFFFF;
+  /* stub_group.background.color */
+  font-size: 16px;
+  /* stub_group.font.size */
+  font-weight: initial;
+  /* stub_group.font.weight */
+  border-top-style: solid;
+  /* stub_group.border.top.style */
+  border-top-width: 2px;
+  /* stub_group.border.top.width */
+  border-top-color: #A8A8A8;
+  /* stub_group.border.top.color */
+  border-bottom-style: solid;
+  /* stub_group.border.bottom.style */
+  border-bottom-width: 2px;
+  /* stub_group.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* stub_group.border.bottom.color */
+  vertical-align: middle;
+}
+
+#iubghfipvq .gt_striped {
+  background-color: #f2f2f2;
+}
+
+#iubghfipvq .gt_row {
+  padding: 10px;
+  /* row.padding */
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#iubghfipvq .gt_stub {
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #A8A8A8;
+  padding-left: 12px;
+}
+
+#iubghfipvq .gt_stub.gt_row {
+  background-color: #FFFFFF;
+}
+
+#iubghfipvq .gt_summary_row {
+  background-color: #FFFFFF;
+  /* summary_row.background.color */
+  padding: 6px;
+  /* summary_row.padding */
+  text-transform: inherit;
+  /* summary_row.text_transform */
+}
+
+#iubghfipvq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+}
+
+#iubghfipvq .gt_table_body {
+  border-top-style: solid;
+  /* field.border.top.style */
+  border-top-width: 2px;
+  /* field.border.top.width */
+  border-top-color: #A8A8A8;
+  /* field.border.top.color */
+  border-bottom-style: solid;
+  /* field.border.bottom.style */
+  border-bottom-width: 2px;
+  /* field.border.bottom.width */
+  border-bottom-color: #A8A8A8;
+  /* field.border.bottom.color */
+}
+
+#iubghfipvq .gt_footnote {
+  font-size: 90%;
+  /* footnote.font.size */
+  padding: 4px;
+  /* footnote.padding */
+}
+
+#iubghfipvq .gt_sourcenote {
+  font-size: 90%;
+  /* sourcenote.font.size */
+  padding: 4px;
+  /* sourcenote.padding */
+}
+
+#iubghfipvq .gt_center {
+  text-align: center;
+}
+
+#iubghfipvq .gt_left {
+  text-align: left;
+}
+
+#iubghfipvq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#iubghfipvq .gt_font_normal {
+  font-weight: normal;
+}
+
+#iubghfipvq .gt_font_bold {
+  font-weight: bold;
+}
+
+#iubghfipvq .gt_font_italic {
+  font-style: italic;
+}
+
+#iubghfipvq .gt_super {
+  font-size: 65%;
+}
+
+#iubghfipvq .gt_footnote_glyph {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="iubghfipvq" style="overflow-x:auto;"><!--gt table start-->
+<table class='gt_table'>
+<thead>
+<tr>
+<th colspan='7' class='gt_heading gt_title gt_font_normal gt_center' >Crimes Against Persons in Denver: 2014 to Present</th>
+</tr>
+<tr>
+<th colspan='7' class='gt_heading gt_subtitle gt_font_normal gt_center gt_bottom_border' ><em>Sample of three districts</em></th>
+</tr>
+</thead>
+<tr>
+<th class='gt_col_heading gt_center' rowspan='2' colspan='1'>Offense</th>
+<th class='gt_col_heading gt_column_spanner gt_center' rowspan='1' colspan='6'>Year</th>
+</tr>
+<tr>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>2014</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>2015</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>2016</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>2017</th>
+<th class='gt_col_heading gt_right' rowspan='1' colspan='1'>2018</th>
+<th class='gt_col_heading gt_NA' rowspan='1' colspan='1'>2019</th>
+</tr>
+<tbody class='gt_table_body'>
+<tr class='gt_group_heading_row'>
+<td colspan='7' class='gt_group_heading'>District 1</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Aggravated Assault</td>
+<td class='gt_row gt_right'>276</td>
+<td class='gt_row gt_right'>280</td>
+<td class='gt_row gt_right'>319</td>
+<td class='gt_row gt_right'>369</td>
+<td class='gt_row gt_right'>390</td>
+<td class='gt_row gt_right'>47</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Sexual Assault</td>
+<td class='gt_row gt_right gt_striped'>88</td>
+<td class='gt_row gt_right gt_striped'>100</td>
+<td class='gt_row gt_right gt_striped'>117</td>
+<td class='gt_row gt_right gt_striped'>150</td>
+<td class='gt_row gt_right gt_striped'>166</td>
+<td class='gt_row gt_right gt_striped'>17</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Murder</td>
+<td class='gt_row gt_right'>7</td>
+<td class='gt_row gt_right'>5</td>
+<td class='gt_row gt_right'>3</td>
+<td class='gt_row gt_right'>4</td>
+<td class='gt_row gt_right'>6</td>
+<td class='gt_row gt_right'>1</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Other Crimes Against Persons</td>
+<td class='gt_row gt_right gt_striped'>651</td>
+<td class='gt_row gt_right gt_striped'>721</td>
+<td class='gt_row gt_right gt_striped'>787</td>
+<td class='gt_row gt_right gt_striped'>828</td>
+<td class='gt_row gt_right gt_striped'>665</td>
+<td class='gt_row gt_right gt_striped'>68</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='7' class='gt_group_heading'>District 3</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Aggravated Assault</td>
+<td class='gt_row gt_right'>269</td>
+<td class='gt_row gt_right'>296</td>
+<td class='gt_row gt_right'>297</td>
+<td class='gt_row gt_right'>311</td>
+<td class='gt_row gt_right'>329</td>
+<td class='gt_row gt_right'>43</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Sexual Assault</td>
+<td class='gt_row gt_right gt_striped'>100</td>
+<td class='gt_row gt_right gt_striped'>130</td>
+<td class='gt_row gt_right gt_striped'>130</td>
+<td class='gt_row gt_right gt_striped'>148</td>
+<td class='gt_row gt_right gt_striped'>168</td>
+<td class='gt_row gt_right gt_striped'>22</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Murder</td>
+<td class='gt_row gt_right'>7</td>
+<td class='gt_row gt_right'>10</td>
+<td class='gt_row gt_right'>8</td>
+<td class='gt_row gt_right'>9</td>
+<td class='gt_row gt_right'>10</td>
+<td class='gt_row gt_right'>0</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Other Crimes Against Persons</td>
+<td class='gt_row gt_right gt_striped'>732</td>
+<td class='gt_row gt_right gt_striped'>853</td>
+<td class='gt_row gt_right gt_striped'>776</td>
+<td class='gt_row gt_right gt_striped'>845</td>
+<td class='gt_row gt_right gt_striped'>678</td>
+<td class='gt_row gt_right gt_striped'>69</td>
+</tr>
+<tr class='gt_group_heading_row'>
+<td colspan='7' class='gt_group_heading'>District 5</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Aggravated Assault</td>
+<td class='gt_row gt_right'>198</td>
+<td class='gt_row gt_right'>203</td>
+<td class='gt_row gt_right'>226</td>
+<td class='gt_row gt_right'>177</td>
+<td class='gt_row gt_right'>257</td>
+<td class='gt_row gt_right'>42</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Sexual Assault</td>
+<td class='gt_row gt_right gt_striped'>54</td>
+<td class='gt_row gt_right gt_striped'>70</td>
+<td class='gt_row gt_right gt_striped'>59</td>
+<td class='gt_row gt_right gt_striped'>76</td>
+<td class='gt_row gt_right gt_striped'>91</td>
+<td class='gt_row gt_right gt_striped'>7</td>
+</tr>
+<tr>
+<td class='gt_row gt_left'>Murder</td>
+<td class='gt_row gt_right'>5</td>
+<td class='gt_row gt_right'>7</td>
+<td class='gt_row gt_right'>9</td>
+<td class='gt_row gt_right'>6</td>
+<td class='gt_row gt_right'>8</td>
+<td class='gt_row gt_right'>0</td>
+</tr>
+<tr>
+<td class='gt_row gt_left gt_striped'>Other Crimes Against Persons</td>
+<td class='gt_row gt_right gt_striped'>395</td>
+<td class='gt_row gt_right gt_striped'>450</td>
+<td class='gt_row gt_right gt_striped'>456</td>
+<td class='gt_row gt_right gt_striped'>451</td>
+<td class='gt_row gt_right gt_striped'>424</td>
+<td class='gt_row gt_right gt_striped'>47</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan='8' class='gt_sourcenote'>Denver Crime Data Distributed via <a href="https://www.kaggle.com/paultimothymooney/denver-crime-data">Kaggle</a></td>
+</tr>
+</tfoot>
+</table>
+<!--gt table end-->
+</div>
+</div>
+
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="by-nc.png" height="400" width="65"/></a>
+</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
