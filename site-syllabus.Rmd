@@ -213,6 +213,7 @@ following:
 ### Product (60 points; 30%)
 
 The final project must include
+
 * A web-deployed portfolio showcasing your [#dataviz](https://twitter.com/search?q=%23DataViz&src=tyah)
   skills.
   + [radix](https://rstudio.github.io/radix/) (what I'll lecture on), 
