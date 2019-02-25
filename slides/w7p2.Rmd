@@ -1,10 +1,10 @@
 ---
-title: "Tables and Fonts"
+title: "Websites with R Markdown and Radix"
 author: "Daniel Anderson "
-date: "Week 7, Class 2 "
+date: "Week 8, Class 1"
 output:
   xaringan::moon_reader:
-    css: ["default", "uo", "uo-fonts", "hygge", "custom.css"]
+    css: ["default", "uo", "uo-fonts", "hygge"]
     lib_dir: libs
     nature:
       highlightStyle: atelier-dune-light
