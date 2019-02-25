@@ -1,3 +1,6 @@
+# Miscellaneous files
+/misc/
+
 # crime file
 /data/crime.csv
 
