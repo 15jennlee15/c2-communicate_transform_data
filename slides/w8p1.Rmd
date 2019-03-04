@@ -1,5 +1,6 @@
 ---
 title: "Websites with R Markdown and Radix"
+subtitle: "Radix is now suddenly distill"
 author: "Daniel Anderson "
 date: "Week 8, Class 1"
 output:
@@ -34,7 +35,7 @@ update_geom_defaults('text', list(size = 6))
 ```
 
 # Agenda 
-* Introduce Radix
+* Introduce Distill (formerly (as in a few days ago) called Radix)
 * Deployment
 
 
@@ -55,13 +56,13 @@ update_geom_defaults('text', list(size = 6))
 ---
 class: inverse center middle
 
-# Radix
-https://rstudio.github.io/radix/
+# Distill
+https://rstudio.github.io/distill/
 
 ---
 # Disclaimer and assumptions
 * This is a very basic (and probably fast) intro
-  + Radix can do a lot that we won't get to
+  + Distill can do a lot that we won't get to
 
 * I assume most of you have never created or deployed a website before
   + If you have, some of this might be slow but you can help others
@@ -72,7 +73,8 @@ https://rstudio.github.io/radix/
 # Please follow along
 
 ```{r eval = FALSE}
-install.packages("radix")
+#install.packages("radix")
+devtools::install_github("rstudio/distill")
 ```
 
 * Go to GitHub and create a repo to store your website (which you'll also use
@@ -84,14 +86,14 @@ for deployment)
 .red[Don't clone your repo yet!]
 
 ### Create new project
-<img src="https://rstudio.github.io/radix/images/create-website.png"
+<img src="https://rstudio.github.io/distill/images/create-website.png"
 height="300px"/>
 
 ---
 # The steps
 * Create a new RStudio Project 
 
-* Select Radix blog
+* Select distill blog
 
 * Use gitkraken (or command line if you're comfortable with that) to initiate a
 repo locally and link it with your remote
@@ -104,7 +106,7 @@ repo locally and link it with your remote
 
 ---
 # Author a new article
-* `radix::create_post()`
+* `distill::create_post()`
 
 * Create another one!
 
@@ -188,13 +190,13 @@ Once your site is deployed (or you know the link it will be deployed to), change
 
 * Gives some nice sharing features (twitter cards)
 
-* Allows you to use [citations](https://rstudio.github.io/radix/citations.html)
+* Allows you to use [citations](https://rstudio.github.io/distill/citations.html)
 
 ---
 # Drafts
 If you want to work on a post for a while without it being included in your website, use `draft = TRUE`
 
-`radix::create_post("My new post", draft = TRUE)`
+`distill::create_post("My new post", draft = TRUE)`
 
 
 ```
@@ -261,7 +263,7 @@ ggplot(mtcars, aes(mpg)) +
 
 ```
 output:
-  radix::radix_article:
+  distill::distill_article:
     css: style.css
 ```
 
@@ -269,7 +271,7 @@ output:
 * Start with default CSS, and modify small elements
 
 ```
-.radix-site-nav {
+.distill-site-nav {
   color: rgba(255, 255, 255, 0.8);
   background-color: #455a64; 
   font-size: 15px;
@@ -280,7 +282,7 @@ output:
 becomes
 
 ```
-.radix-site-nav {
+.distill-site-nav {
   color: rgba(255, 255, 255, 0.8);
   background-color: #FF5FDD; 
   font-size: 15px;
