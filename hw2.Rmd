@@ -40,8 +40,8 @@ crime <- read_csv(here::here("data", "crime.csv")) %>%
 crime %>% 
   filter(is_crime == 1) %>% 
   mutate(offense_category_id = str_to_title(
-    gsub("-", " ", offense_category_id))
-    ) %>% 
+    str_replace_all(offense_category_id, "-", " "))
+  ) %>% 
   group_by(offense_category_id) %>% 
   count() %>% 
   ungroup() %>% 
@@ -119,10 +119,8 @@ smry <- crime %>%
   mutate(district_id = fct_reorder(factor(district_id), prop),
          year = factor(year))
 
-pd <- position_dodge(0.9)
-
 ggplot(smry, aes(district_id, prop)) +
-  geom_col(aes(fill = district_id), position = pd) +
+  geom_col(aes(fill = district_id)) +
   geom_errorbar(aes(ymin = lower, ymax = upper),
                 width = 0.4,
                 color = "gray40") +
